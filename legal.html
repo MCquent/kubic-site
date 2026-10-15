@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="lg.metatitle">Legal notice &amp; privacy — Kubic</title>
+<meta name="description" data-i18n-attr="content:lg.metadesc" content="Who publishes Kubic, what this website does with your visit, and what the Kubic app does with your data.">
+<link rel="canonical" href="https://kubicmc.com/legal.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/icon.png">
+<meta name="theme-color" content="#08080a">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  /* Même amorce que index.html : thème et langue avant le premier affichage. */
+  (function () {
+    var root = document.documentElement;
+    var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+    root.classList.add('js');
+    root.dataset.theme = get('kubic-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var q = /[?&]lang=([a-z]{2})\b/.exec(location.search);
+    var lang = (q && q[1]) || get('kubic-lang') || 'en';
+    root.dataset.lang = lang;
+    if (lang !== 'en') {
+      root.classList.add('i18n-wait');
+      setTimeout(function () { root.classList.remove('i18n-wait'); }, 1500);
+    }
+  })();
+</script>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9S14.4 18.4 12 21C9.6 18.4 8.4 15.4 8.4 12S9.6 5.6 12 3Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#content" data-i18n="nav.skip">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Kubic — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
+      <span class="brand-name">Kubic</span>
+    </a>
+    <div class="nav-actions">
+      <label class="lang-pick">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <select id="lang-select" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+          <option value="en" lang="en">EN</option>
+          <option value="fr" lang="fr">FR</option>
+          <option value="es" lang="es">ES</option>
+          <option value="de" lang="de">DE</option>
+          <option value="it" lang="it">IT</option>
+          <option value="pt" lang="pt">PT</option>
+        </select>
+      </label>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch theme" data-i18n-attr="aria-label:nav.theme">
+        <svg class="ico-moon"><use href="#i-moon"/></svg>
+        <svg class="ico-sun"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm nav-dl" href="index.html#download">
+        <svg><use href="#i-download"/></svg> <span data-i18n="nav.download">Download</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="content" class="doc">
+  <div class="wrap wrap-narrow">
+    <a class="doc-back" href="index.html"><svg><use href="#i-chevron"/></svg> <span data-i18n="lg.back">Back to Kubic</span></a>
+    <h1 data-i18n="lg.title">Legal notice &amp; privacy</h1>
+    <p class="doc-lead" data-i18n="lg.lead">Who publishes this site, what it does with your visit, and what the Kubic app does with your data — in plain words.</p>
+
+    <section>
+      <h2 data-i18n="lg.pub.t">Publisher</h2>
+      <p data-i18n="lg.pub.p1">Kubic and this website are a non-commercial project published by a private individual.</p>
+      <p data-i18n="lg.pub.p2">Contact: <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a> — for any question, any request about your data, or to report abuse, which is handled as a priority.</p>
+      <h3 data-i18n="lg.host.t">Hosting</h3>
+      <!-- Hébergeur exigé par la loi pour la confiance dans l'économie numérique, art. 6.
+           À changer ici et dans assets/js/lang/*.js (clé lg.host.p) si le site quitte GitHub Pages. -->
+      <p data-i18n="lg.host.p">This site and the installer are hosted by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States — +1 415 735 4488.</p>
+    </section>
+
+    <section>
+      <h2 data-i18n="lg.site.t">This website</h2>
+      <ul>
+        <li data-i18n="lg.site.l1">No cookies, no analytics, no advertising, no third-party scripts or fonts: nothing on this site follows you.</li>
+        <li data-i18n="lg.site.l2">Two preferences — theme and language — are kept in your browser's local storage when you change them. They never leave your device.</li>
+        <li data-i18n="lg.site.l3">Like any web server, the host keeps technical logs (IP address, date, page requested) to run the service and keep it secure.</li>
+        <li data-i18n="lg.site.l4">The installer is downloaded from GitHub, where Kubic's releases are published; its SHA-256 hash is shown on the download page so you can check the file.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-i18n="lg.app.t">The Kubic app</h2>
+      <p data-i18n="lg.app.p">Its full privacy policy is built into the app, under <strong>Contact → Privacy</strong>, in six languages. In short:</p>
+      <ul>
+        <li data-i18n="lg.app.l1"><strong>No telemetry</strong>: no usage statistics, no audience measurement, no automatic crash reports.</li>
+        <li data-i18n="lg.app.l2">Your servers, worlds, backups, screenshots, settings and Microsoft sign-in tokens <strong>stay on your computer</strong>.</li>
+        <li data-i18n="lg.app.l3">Kubic contacts outside services only to do what you ask: Mojang and Microsoft (sign-in, game versions), Modrinth and CurseForge (mods), Paper, Purpur, Fabric, Forge, NeoForge, Quilt and OptiFine (server versions and loaders), the Maven repositories (libraries), and ipify (your public IP, when you ask for it in the Network tab).</li>
+      </ul>
+
+      <h3 data-i18n="lg.addr.t">Custom addresses — optional</h3>
+      <p data-i18n="lg.addr.p1">When you claim an address such as <code>yourname.kubicmc.com</code>, the app sends Kubic's service the name you chose, your server's port, a public key generated on your computer, and a dated signature. Your IP address is not sent by the app: the service reads it from the connection. Your username, your Minecraft or Microsoft account, your server names, your worlds and your mods are never sent.</p>
+      <p data-i18n="lg.addr.p2">The service then publishes two DNS records — your name pointing to your public IP, and your server's port. <strong>Anyone can read them</strong>: that is how DNS works. The service runs on Cloudflare; the domain's DNS zone is hosted by Porkbun.</p>
+      <p data-i18n="lg.addr.p3">The address disappears at once when you release it, or after thirty days without any sign of life from the app. If publishing your IP does not suit you, do not claim an address: your server keeps working with its direct IP, which you share only with whom you choose.</p>
+
+      <h3 data-i18n="lg.ai.t">AI companions — optional, off by default</h3>
+      <p data-i18n="lg.ai.p">With the Anthropic provider, your API key and the companion's exchanges — what it sees in the game, what it is told, what it answers — are sent to Anthropic and fall under its privacy policy. With the local provider, everything stays on your computer. Your API key is stored on your machine and never reaches Kubic's servers.</p>
+
+      <h3 data-i18n="lg.rights.t">Your rights</h3>
+      <p data-i18n="lg.rights.p">Releasing an address erases everything Kubic's service holds about you. Kubic keeps no account, no identifier and no history; for any other request, write to the contact address above.</p>
+    </section>
+
+    <section>
+      <h2 data-i18n="lg.tm.t">Trademarks and licence</h2>
+      <p data-i18n="lg.tm.p1">Kubic is not an official Minecraft product. It is not approved by or associated with Mojang or Microsoft. Minecraft is a trademark of Mojang Studios; the item textures shown on this site belong to them and are shown for illustration only.</p>
+      <p data-i18n="lg.tm.p2">Kubic is free software, released under the MIT licence.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
+      <div>
+        <b>Kubic</b>
+        <small data-i18n="foot.tagline">Minecraft launcher and server manager</small>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer" data-i18n-attr="aria-label:foot.aria">
+      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
+      <a href="index.html#multiplayer" data-i18n="nav.multiplayer">Multiplayer</a>
+      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="index.html#download" data-i18n="nav.download">Download</a>
+      <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <p class="foot-contact">
+      <svg><use href="#i-mail"/></svg> <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a>
+    </p>
+    <p class="foot-legal" data-i18n="foot.short">© <span data-year>2026</span> Kubic — MIT licence. Not affiliated with Mojang Studios or Microsoft.</p>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
