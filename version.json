@@ -1,9 +1,9 @@
 {
   "version": "1.2.0",
   "url": "https://github.com/MCquent/kubic/releases/download/v1.2.0/Kubic-Setup-1.2.0.exe",
-  "sha256": "f00c9bd084441288cad1ef914d6c31e133c8b6fba90f81c8d3fce05e06aa9786",
-  "taille": 121183314,
-  "date": "2026-10-12",
+  "sha256": "7b0cee41a367530838095a128b348f860b091c4ea195528e34c1b18add20f1ab",
+  "taille": 121184574,
+  "date": "2026-10-15",
   "notes": [
     "Menu Kubic : il s’installe d’un clic dans les paramètres d’une instance (Fabric, Minecraft 1.20.5 et plus)",
     "Importer un modpack dans une instance, y compris un simple .zip de mods",
