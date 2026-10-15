@@ -15,6 +15,7 @@ assets/js/lang/         une traduction par fichier : fr, es, de, it, pt
 assets/js/main.js       version, thème, menu, apparitions, inventaire, copie de l'empreinte
 assets/img/             icône, og.png (aperçu de partage 1200×630), textures du jeu
 .nojekyll               dit à GitHub Pages de servir les fichiers tels quels
+CNAME                   le domaine du site (kubicmc.com), écrit par GitHub — à garder
 downloads/              copie locale de l'installeur, pour publier-site.js — à ne PAS envoyer
                         sur GitHub (l'installeur va dans une Release)
 ```
@@ -71,11 +72,15 @@ Les balises de partage (`canonical`, `og:url`, `og:image`) pointent vers **https
 le domaine du projet. Si le site est servi ailleurs, changer les quatre lignes signalées en tête
 de `index.html` et le `canonical` de `legal.html`.
 
-L'application ne cherche ses mises à jour que si `package.json` (clé `kubic.miseAJour`) donne
-l'adresse de `version.json`, en `https://` — par exemple `https://kubicmc.com/version.json`. Elle
-est **vide dans la 1.2.0** : ses utilisateurs ne seront prévenus d'aucune nouvelle version. À
-renseigner avant de construire la suivante, et à mentionner dans le document de confidentialité
-de l'application (il recense les services contactés).
+L'application cherche ses mises à jour à l'adresse donnée par `package.json` (clé
+`kubic.miseAJour`) : `https://kubicmc.com/version.json`, renseignée le 15 octobre 2026, et
+décrite dans son document de confidentialité (« Pour les mises à jour »). Elle était **vide dans
+la 1.2.0** déjà distribuée : ses utilisateurs ne seront prévenus d'aucune nouvelle version et
+devront revenir une fois sur le site. Les versions construites à partir de maintenant vérifient
+au démarrage (réglable dans Réglages → Mises à jour).
+
+Si cette adresse change un jour (autre domaine, autre hébergeur), l'ancienne doit continuer de
+servir `version.json` : les versions déjà installées ne connaissent qu'elle.
 
 ## Mettre en ligne
 
