@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="meta.title">Kubic — Minecraft launcher and server manager</title>
-<meta name="description" data-i18n-attr="content:meta.description" content="Kubic launches Minecraft and runs your local servers — Vanilla, Paper, Purpur, Folia, Fabric, Forge, NeoForge, Velocity, Waterfall. Console, plugins and mods, backups, world map, player inventories, Java included. Free for Windows.">
+<meta name="description" data-i18n-attr="content:meta.description" content="Kubic launches Minecraft and runs your local servers — Vanilla, Paper, Purpur, Folia, Fabric, Forge, NeoForge, Velocity, Waterfall. Console, plugins and mods, backups, world map, player inventories, a 3D schematic viewer, Java included. Free for Windows.">
 <!-- Adresse publique du site : à changer ici (4 lignes) s'il n'est pas servi depuis kubicmc.com. -->
 <link rel="canonical" href="https://kubicmc.com/">
 <meta property="og:url" content="https://kubicmc.com/">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kubic">
 <meta property="og:title" content="Kubic — Minecraft launcher and server manager">
-<meta property="og:description" content="Create, run and manage your Minecraft servers, and launch the game, from a single app. Free, for Windows.">
+<meta property="og:description" content="Create, run and manage your Minecraft servers, launch the game and explore your schematics in 3D, from a single app. Free, for Windows.">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Kubic — Minecraft launcher and server manager">
@@ -82,6 +82,10 @@
     <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 5.8 10.4 4.7v6.6H3V5.8Z" fill="currentColor" stroke="none"/><path d="M11.6 4.5 21 3v8.3h-9.4V4.5Z" fill="currentColor" stroke="none"/><path d="M3 12.7h7.4v6.6L3 18.2v-5.5Z" fill="currentColor" stroke="none"/><path d="M11.6 12.7H21V21l-9.4-1.5v-6.8Z" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7.2 2.3L12.5 20 21 3Z"/><path d="m10.2 12.8 4.3-4.3"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
   </defs>
 </svg>
@@ -97,10 +101,10 @@
     </a>
 
     <nav class="nav-links" id="nav-links" aria-label="Main navigation" data-i18n-attr="aria-label:nav.main">
+      <a href="#schematics" data-i18n="nav.viewer">3D viewer</a>
       <a href="#servers" data-i18n="nav.servers">Servers</a>
       <a href="#multiplayer" data-i18n="nav.multiplayer">Multiplayer</a>
       <a href="#launcher" data-i18n="nav.launcher">Launcher</a>
-      <a href="#java">Java</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
 
@@ -275,6 +279,141 @@
       </div>
       <div class="shot-fade" aria-hidden="true"></div>
     </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────── visionneur 3D ─────────────────────────── -->
+<section class="sec sec-alt" id="schematics">
+  <div class="wrap">
+    <header class="sec-head" data-reveal>
+      <p class="kicker" data-i18n="sc.kicker">3D schematic viewer</p>
+      <h2 data-i18n="sc.title">Walk through any build, layer by layer.</h2>
+      <p class="sec-lead" data-i18n="sc.lead">
+        The Schematics screen opens Litematica, WorldEdit and structure files in real-time 3D, with
+        the game's own models and textures. Below is that screen as it looks in the app — and the
+        3D view is live: it runs on the app's own engine, right in your browser.
+      </p>
+      <p class="sc-try"><span class="viewer-dot"></span> <span data-i18n="sc.try">Try it: drag to turn the build, cut it with the layer sliders, or fly through it.</span></p>
+    </header>
+
+    <!-- l'écran Schematics de l'application ; la scène 3D est le vrai moteur (assets/js/viewer/) -->
+    <div class="sch" id="viewer" data-reveal>
+      <div class="app-tb">
+        <span class="tb-brand"><img src="assets/img/icon.png" alt=""> Kubic client</span>
+        <span class="chip" data-i18n="app.norun">No server running</span>
+        <span class="chip">v<span data-dl-version>1.2.0</span></span>
+        <span class="tb-win"><i></i><i></i><i></i></span>
+      </div>
+
+      <div class="sch-body">
+        <aside class="app-side sch-side" aria-hidden="true">
+          <div class="side-head">
+            <img class="side-logo" src="assets/img/icon.png" alt="">
+            <div>
+              <strong>Kubic<br>schematics</strong>
+              <small data-i18n="sch.sub">Your plan library</small>
+            </div>
+          </div>
+          <div class="side-label"><span data-i18n="sch.side">My schematics</span></div>
+          <div class="sch-arbre">
+            <span class="sch-l racine"><svg><use href="#i-chevron"/></svg><svg><use href="#i-archive"/></svg> <span data-i18n="sch.lib">Library</span></span>
+            <span class="sch-l dossier n1"><svg><use href="#i-chevron"/></svg><svg><use href="#i-folder"/></svg> Redstone</span>
+            <span class="sch-l fichier n2 is-active"><svg><use href="#i-cube"/></svg> <span id="sch-arbre-nom">720k concrete swapper</span></span>
+            <span class="sch-l fichier n2"><svg><use href="#i-cube"/></svg> Item sorter</span>
+            <span class="sch-l fichier n2"><svg><use href="#i-cube"/></svg> Mob switch</span>
+            <span class="sch-l dossier n1 ferme"><svg><use href="#i-chevron"/></svg><svg><use href="#i-folder"/></svg> Farms</span>
+            <span class="sch-l dossier n1 ferme"><svg><use href="#i-chevron"/></svg><svg><use href="#i-folder"/></svg> 1.21</span>
+            <span class="sch-l racine ferme"><svg><use href="#i-chevron"/></svg><svg><use href="#i-play"/></svg> 1.21.4 Fabric</span>
+          </div>
+          <div class="side-foot">
+            <span class="mini-btn mini-primary">+ <span data-i18n="sch.import">Import</span></span>
+          </div>
+        </aside>
+
+        <div class="sch-main">
+          <div class="sch-head">
+            <div class="sch-id">
+              <div class="sch-titre"><h3 id="viewer-nom">720k concrete swapper</h3> <span class="chip" id="viewer-dims">28 × 30 × 25</span></div>
+              <div class="sch-meta">
+                <span><b id="viewer-blocs">3,650</b> <span data-i18n="sch.blocks">blocks</span></span>
+                <span data-i18n="sch.region">1 region</span>
+                <span><span data-i18n="vw.by">by</span> <b id="viewer-auteur">YaneuraBear</b></span>
+                <span id="viewer-date">11 July 2025</span>
+              </div>
+            </div>
+            <div class="sch-actions">
+              <span class="sbtn is-off" title="Available in the app" data-i18n-attr="title:sch.inapp"><svg><use href="#i-image"/></svg> <span class="sbtn-lbl" data-i18n="sch.flat">Flat view</span></span>
+              <button type="button" class="sbtn fine-only" id="vw-fly"><svg><use href="#i-bolt"/></svg> <span class="sbtn-lbl" id="vw-fly-t">Free flight</span></button>
+              <button type="button" class="sbtn" id="vw-reset"><svg><use href="#i-target"/></svg> <span class="sbtn-lbl" data-i18n="sch.reframe">Reframe</span></button>
+              <button type="button" class="sbtn" id="vw-rot"><svg><use href="#i-refresh"/></svg> <span class="sbtn-lbl" data-i18n="sch.rotate">Rotate</span></button>
+              <button type="button" class="sbtn sbtn-ico" id="vw-full" aria-label="Full screen" data-i18n-attr="aria-label:vw.full"><svg><use href="#i-expand"/></svg></button>
+            </div>
+          </div>
+
+          <div class="sch-corps">
+            <div class="sch-scene" id="viewer-stage">
+              <img class="viewer-poster" src="assets/viewer/720k-concrete-swapper.webp" width="1600" height="900" alt="The 720k concrete swapper, a redstone machine, rendered in 3D by Kubic" data-i18n-attr="alt:vw.alt">
+              <canvas class="viewer-cv" id="viewer-cv" tabindex="0" aria-label="Interactive 3D view of the 720k concrete swapper" data-i18n-attr="aria-label:vw.aria"></canvas>
+              <p class="viewer-hint" id="viewer-hint">
+                <span class="hint-fine" data-i18n="vw.hint">Drag to turn · scroll to zoom · Shift + drag to move</span>
+                <span class="hint-touch" data-i18n="vw.hint.touch">Swipe sideways to turn · pinch to zoom</span>
+              </p>
+              <div class="sch-hud" id="viewer-hud"><span id="viewer-faces">26.3</span><span id="viewer-visibles">3,582 blocks visible</span></div>
+              <div class="viewer-fly" id="viewer-fly" hidden>
+                <span class="viewer-cross" aria-hidden="true"></span>
+                <p class="viewer-aim" id="viewer-aim" hidden></p>
+                <p class="viewer-keys" id="viewer-keys"></p>
+              </div>
+              <p class="viewer-msg" id="viewer-msg" hidden></p>
+              <div class="sch-tranche">
+                <span data-i18n="sch.layers">Layers</span>
+                <input type="range" id="vw-bas" min="0" max="29" value="0" aria-label="Layer floor" data-i18n-attr="aria-label:sch.floor">
+                <input type="range" id="vw-haut" min="0" max="29" value="29" aria-label="Layer ceiling" data-i18n-attr="aria-label:sch.ceiling">
+                <output id="vw-couches">0 → 29</output>
+              </div>
+            </div>
+
+            <aside class="sch-cote">
+              <div class="sch-carte">
+                <div class="sch-carte-tete">
+                  <h4 data-i18n="sc.mats">Materials</h4>
+                  <span id="mats-types">58</span>
+                </div>
+                <input type="search" class="sch-filtre" id="mats-filtre" placeholder="Filter…" aria-label="Filter the materials" data-i18n-attr="placeholder:sch.filter;aria-label:sch.filter.aria">
+                <ol class="mats-list" id="mats-list">
+                  <li><span class="mat-ico" style="--tx:4;--ty:0"></span><span class="mat-nom">Black stained glass</span><span class="mat-n">760</span><span class="mat-bar"><i style="width:100%"></i></span></li>
+                  <li><span class="mat-ico" style="--tx:2;--ty:2"></span><span class="mat-nom">Gray concrete</span><span class="mat-n">407</span><span class="mat-bar"><i style="width:54%"></i></span></li>
+                  <li><span class="mat-ico" style="--tx:2;--ty:4"></span><span class="mat-nom">Observer</span><span class="mat-n">405</span><span class="mat-bar"><i style="width:53%"></i></span></li>
+                  <li><span class="mat-ico mat-red" style="--tx:8;--ty:5"></span><span class="mat-nom">Redstone wire</span><span class="mat-n">250</span><span class="mat-bar"><i style="width:33%"></i></span></li>
+                  <li><span class="mat-ico" style="--tx:8;--ty:4"></span><span class="mat-nom">Piston</span><span class="mat-n">200</span><span class="mat-bar"><i style="width:26%"></i></span></li>
+                  <li><span class="mat-ico" style="--tx:4;--ty:6"></span><span class="mat-nom">Repeater</span><span class="mat-n">145</span><span class="mat-bar"><i style="width:19%"></i></span></li>
+                </ol>
+              </div>
+              <div class="sch-carte fine-only">
+                <div class="sch-carte-tete">
+                  <h4 data-i18n="sch.controls">Controls</h4>
+                  <select class="sch-dispo" id="vw-dispo" aria-label="Keyboard layout" data-i18n-attr="aria-label:sch.layout">
+                    <option value="azerty">AZERTY</option>
+                    <option value="qwerty">QWERTY</option>
+                  </select>
+                </div>
+                <dl class="sch-aide" id="viewer-aide"></dl>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="ticks sc-ticks" data-reveal>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t1">Litematica (<code>.litematic</code>), WorldEdit / Sponge (<code>.schem</code>) and structure block (<code>.nbt</code>) files.</span></li>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t2">The game's own block models and textures, from its latest version — boats, minecarts and item frames included.</span></li>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t3">Layer by layer: the cut falls exactly between two layers, to rebuild a machine floor by floor.</span></li>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t4">Free flight like in the game — WASD or ZQSD, the game's own mouse sensitivity, a ×4 zoom you hold down.</span></li>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t5">Aim at a block to read its name and state; hide it to see what is behind.</span></li>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t6">Smooth on builds of 150,000 blocks: one buffer per layer, and hidden faces are never drawn.</span></li>
+      <li><svg><use href="#i-check"/></svg> <span data-i18n="sc.t7">Your schematics in one library, a folder per game version, shared with your instances.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -757,13 +896,14 @@
     </p>
     <p class="foot-legal" data-i18n="foot.legal">
       Independent project, not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of
-      Mojang Studios; the item textures shown on this page belong to them and are shown for
-      illustration only. © <span data-year>2026</span> Kubic — MIT licence.
+      Mojang Studios; the game textures shown on this page belong to them and are shown for
+      illustration only, and the schematic in the 3D view is the work of its credited author. © <span data-year>2026</span> Kubic — MIT licence.
     </p>
   </div>
 </footer>
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
+<script type="module" src="assets/js/viewer/demo.js"></script>
 </body>
 </html>

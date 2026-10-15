@@ -13,6 +13,8 @@ assets/css/style.css    thème sombre / clair, repris des variables de l'applica
 assets/js/i18n.js       moteur de langue
 assets/js/lang/         une traduction par fichier : fr, es, de, it, pt
 assets/js/main.js       version, thème, menu, apparitions, inventaire, copie de l'empreinte
+assets/js/viewer/       le visionneur 3D : moteur de l'application + mise en scène (demo.js)
+assets/viewer/          le plan montré en 3D, exporté par l'application, et son image de secours
 assets/img/             icône, og.png (aperçu de partage 1200×630), textures du jeu
 .nojekyll               dit à GitHub Pages de servir les fichiers tels quels
 CNAME                   le domaine du site (kubicmc.com), écrit par GitHub — à garder
@@ -44,6 +46,47 @@ C'est tout : plus d'objet `RELEASE` à recopier dans `main.js` (le commentaire e
 `publier-site.js` qui en parle est périmé). Les valeurs écrites dans `index.html` (« 1.2.0 »,
 « 116 MB », la date, l'empreinte, le nom du fichier) ne servent que sans JavaScript ou en ouvrant
 la page par double-clic ; on peut les remettre à jour par un rechercher-remplacer, sans urgence.
+
+## Le visionneur 3D
+
+La section « 3D schematic viewer » (`#schematics`), juste après le haut de page : une copie de
+l'écran Schematics de l'application (barre de titre, bibliothèque, en-tête du plan, matériaux,
+commandes), dont la scène est le **vrai moteur 3D de l'application**, en direct dans le
+navigateur, sur un vrai plan — le *720k concrete swapper* de **YaneuraBear**. La bibliothèque à
+gauche est décorative ; « Vue à plat » est grisé (« dans l'application »). Le moteur ne démarre
+que lorsque la section approche de l'écran (ou 3 s après le chargement), pour ne pas ralentir
+l'arrivée sur la page.
+
+- **Le moteur** — `assets/js/viewer/moteur3d.js` et `maillage.js` sont des copies de
+  `renderer/js/schematics/` de l'application, avec une seule différence, notée en tête de
+  `moteur3d.js` : `this.clavier`, qui ne laisse le moteur écouter le clavier que lorsque le
+  visiteur a pris la main (sinon F, et même Ctrl+F, basculeraient le vol pendant la lecture).
+  Quand le moteur change dans l'application, recopier les deux fichiers et remettre ce point.
+- **Le plan** — `assets/viewer/<nom>.json` et `.bin` (géométrie tirée des modèles du jeu) et
+  `atlas-<version>.png` (les seules textures employées : 84 au lieu de 1 374, 66 Ko). Ils sont
+  produits par l'application elle-même :
+
+  ```
+  ./node_modules/electron/dist/electron.exe tools/exporter-vue-site.js "<plan>" "<dossier du site>"
+  ```
+
+  depuis le projet de l'application (Electron en processus principal, **sans**
+  `ELECTRON_RUN_AS_NODE`). L'outil dit ensuite quelle valeur donner à `PLAN` en tête de
+  `assets/js/viewer/demo.js`.
+- **La mise en scène** (`demo.js`) : rotation lente tant que personne n'y touche, découpe par
+  couches, recadrage, plein écran, vol libre (touches AZERTY ou QWERTY selon le clavier du
+  visiteur), nom du bloc visé, zoom à deux doigts. Sur téléphone, la bibliothèque et la carte
+  « Commandes » disparaissent et les matériaux passent sous la vue. La molette ne zoome qu'après
+  un clic dans la scène : avant, elle fait défiler la page. Le nom du plan, son auteur, sa
+  taille, sa date et la liste complète des matériaux (avec son filtre) sont lus dans le `.json` : changer de plan ne
+  demande pas de toucher au HTML. Les valeurs écrites dans le HTML ne servent que sans JS.
+- **L'image de secours** — `assets/viewer/<nom>.webp`, montrée pendant le chargement ou si le
+  navigateur n'a pas WebGL 2. Pour la refaire : servir le site en local, ouvrir la console du
+  navigateur et taper `await kubicVue.affiche()` ; le fichier se télécharge, à poser dans
+  `assets/viewer/`.
+- **L'auteur** — le nom et l'auteur viennent des métadonnées du fichier et s'affichent dans
+  l'en-tête du plan, et `legal.html` le cite (clé `lg.tm.p1`). Pour un autre plan, s'assurer que son auteur est
+  d'accord pour qu'il serve de vitrine, et changer cette phrase dans `legal.html` et `lang/*.js`.
 
 ## Langues
 
@@ -133,15 +176,16 @@ l'extension *Live Server* de VS Code, ou `npx --yes serve .` si Node.js est inst
 - **Thème** — sombre par défaut, bouton lune/soleil, choix mémorisé ; la préférence système est
   respectée à la première visite. Thème et langue sont posés dans le `<head>`, avant le premier
   affichage : pas d'éclair de la mauvaise version.
-- **La capture du hero n'est pas une image** : la fenêtre de l'application est reconstruite en
-  HTML/CSS d'après ses vraies captures. Tout y est en `em` et sa police suit la largeur de son
-  conteneur : sur téléphone elle devient une miniature fidèle au lieu de s'empiler. Elle reste
-  nette, suit le thème et la langue.
+- **La maquette du gestionnaire de serveurs** (section Servers) n'est pas une image : la fenêtre
+  de l'application est reconstruite en HTML/CSS d'après ses vraies captures. Tout y est en `em`
+  et sa police suit la largeur de son conteneur : sur téléphone elle devient une miniature
+  fidèle au lieu de s'empiler. Elle reste nette, suit le thème et la langue.
 - **L'inventaire** utilise les vraies textures 16×16 du jeu (`assets/img/items/`, 30 Ko), rendues
   sans lissage. Le contenu des cases se change dans les tableaux `ARMOR`, `BAG` et `BAR` de
   `main.js` : `['nom_de_texture', quantité, usure en %]`. Ces textures appartiennent à Mojang ;
   le pied de page le mentionne, gardez le site non commercial.
-- **`og.png`** a été dessinée à partir de l'icône ; à refaire si l'icône change.
+- **`og.png`** (l'aperçu sur Discord et les réseaux) montre l'icône et une vue du plan rendue par
+  le moteur ; à refaire si l'un ou l'autre change.
 - **Aucun script tiers**, aucune police distante, aucun cookie. Deux entrées de stockage local
   (`kubic-theme`, `kubic-lang`), purement fonctionnelles : pas de bandeau de consentement à
   prévoir.
