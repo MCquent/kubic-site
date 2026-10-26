@@ -1,0 +1,179 @@
+{
+  "format": 1,
+  "extensions": [
+    {
+      "id": "createur-bannieres",
+      "nom": {
+        "fr": "Créateur de bannières",
+        "en": "Banner maker",
+        "es": "Creador de estandartes",
+        "de": "Banner-Editor",
+        "it": "Creatore di stendardi",
+        "pt": "Criador de estandartes"
+      },
+      "description": {
+        "fr": "Composez une bannière motif par motif, voyez-la sur un bouclier, et obtenez la commande ou les étapes au métier à tisser pour votre version du jeu.",
+        "en": "Build a banner pattern by pattern, see it on a shield, and get the command or the loom steps for your game version.",
+        "es": "Componga un estandarte patrón a patrón, véalo en un escudo y obtenga el comando o los pasos en el telar para su versión del juego.",
+        "de": "Gestalten Sie ein Banner Muster für Muster, sehen Sie es auf einem Schild und erhalten Sie den Befehl oder die Webstuhl-Schritte für Ihre Spielversion.",
+        "it": "Componi uno stendardo motivo dopo motivo, guardalo su uno scudo e ottieni il comando o i passaggi al telaio per la tua versione del gioco.",
+        "pt": "Componha um estandarte padrão a padrão, veja-o num escudo e obtenha o comando ou os passos no tear para a sua versão do jogo."
+      },
+      "version": "1.0.0",
+      "auteur": "Kubic",
+      "icone": "icones/createur-bannieres.png",
+      "fichier": "createur-bannieres-1.0.0.kubicext",
+      "taille": 37144,
+      "sha256": "1fc5f2b3a6cbb9fb569d42a1bdd79f223342e45bdb2f377c7fb4a6577b4d347e",
+      "permissions": [
+        "textures",
+        "enregistrer"
+      ]
+    },
+    {
+      "id": "editeur-skin",
+      "nom": {
+        "fr": "Éditeur de skin",
+        "en": "Skin editor",
+        "es": "Editor de skins",
+        "de": "Skin-Editor",
+        "it": "Editor di skin",
+        "pt": "Editor de skins"
+      },
+      "description": {
+        "fr": "Peignez votre skin pixel par pixel, sur le modèle 3D ou à plat, puis appliquez-le à votre compte.",
+        "en": "Paint your skin pixel by pixel, on the 3D model or flat, then apply it to your account.",
+        "es": "Pinte su skin píxel a píxel, sobre el modelo 3D o en plano, y aplíquelo a su cuenta.",
+        "de": "Malen Sie Ihren Skin Pixel für Pixel, am 3D-Modell oder flach, und übernehmen Sie ihn für Ihr Konto.",
+        "it": "Dipingi il tuo skin pixel per pixel, sul modello 3D o in piano, poi applicalo al tuo account.",
+        "pt": "Pinte o seu skin píxel a píxel, no modelo 3D ou em plano, e aplique-o à sua conta."
+      },
+      "version": "1.0.2",
+      "auteur": "Kubic",
+      "icone": "icones/editeur-skin.png",
+      "fichier": "editeur-skin-1.0.2.kubicext",
+      "taille": 21619,
+      "sha256": "18c0fdc9c2ce7122fa59e4eae8919052a99a22f20ea07a88c02b37a7c622af6c",
+      "permissions": [
+        "enregistrer",
+        "skin",
+        "appliquerSkin",
+        "textures"
+      ]
+    },
+    {
+      "id": "gateway-finder",
+      "nom": {
+        "fr": "End Gateway Finder 1.12",
+        "en": "End Gateway Finder 1.12",
+        "es": "End Gateway Finder 1.12",
+        "de": "End Gateway Finder 1.12",
+        "it": "End Gateway Finder 1.12",
+        "pt": "End Gateway Finder 1.12"
+      },
+      "description": {
+        "fr": "Trouve les chunks de l’End dont la génération crée vraiment un gateway en 1.12, avec la carte du relief et les chunks déjà générés de votre monde.",
+        "en": "Finds the End chunks whose generation really creates a gateway in 1.12, with the terrain map and your world’s already generated chunks.",
+        "es": "Encuentra los chunks del End cuya generación crea de verdad un gateway en 1.12, con el mapa del relieve y los chunks ya generados de su mundo.",
+        "de": "Findet die End-Chunks, deren Generierung in 1.12 wirklich ein Gateway erzeugt, mit Geländekarte und den bereits generierten Chunks Ihrer Welt.",
+        "it": "Trova i chunk dell’End la cui generazione crea davvero un gateway in 1.12, con la mappa del rilievo e i chunk già generati del tuo mondo.",
+        "pt": "Encontra os chunks do End cuja geração cria mesmo um gateway na 1.12, com o mapa do relevo e os chunks já gerados do seu mundo."
+      },
+      "version": "1.0.2",
+      "auteur": "Kubic",
+      "icone": "icones/gateway-finder.png",
+      "fichier": "gateway-finder-1.0.2.kubicext",
+      "taille": 34859,
+      "sha256": "bcd031510948be249952c7bc1628a6f6757fe111fbec8cfed2c03da7ed4d78af",
+      "permissions": [
+        "mondes"
+      ]
+    },
+    {
+      "id": "generateur-cercles",
+      "nom": {
+        "fr": "Générateur de cercles",
+        "en": "Circle generator",
+        "es": "Generador de círculos",
+        "de": "Kreisgenerator",
+        "it": "Generatore di cerchi",
+        "pt": "Gerador de círculos"
+      },
+      "description": {
+        "fr": "Cercles, ellipses et sphères bloc par bloc, avec le nombre de blocs et le motif des marches.",
+        "en": "Circles, ellipses and spheres block by block, with the block count and the step pattern.",
+        "es": "Círculos, elipses y esferas bloque a bloque, con el número de bloques y el patrón de escalones.",
+        "de": "Kreise, Ellipsen und Kugeln Block für Block, mit Blockanzahl und Stufenmuster.",
+        "it": "Cerchi, ellissi e sfere blocco per blocco, con il numero di blocchi e lo schema dei gradini.",
+        "pt": "Círculos, elipses e esferas bloco a bloco, com o número de blocos e o padrão dos degraus."
+      },
+      "version": "1.0.2",
+      "auteur": "Kubic",
+      "icone": "icones/generateur-cercles.png",
+      "fichier": "generateur-cercles-1.0.2.kubicext",
+      "taille": 12558,
+      "sha256": "84871bceeb6e65a6fd692ece848ec480c096024a3ad69885e4015bc0d9e69a99",
+      "permissions": [
+        "enregistrer"
+      ]
+    },
+    {
+      "id": "pixel-art",
+      "nom": {
+        "fr": "Pixel art",
+        "en": "Pixel art",
+        "es": "Pixel art",
+        "de": "Pixel-Art",
+        "it": "Pixel art",
+        "pt": "Pixel art"
+      },
+      "description": {
+        "fr": "Dessinez en blocs ou convertissez une image, avec les vraies textures du jeu, puis exportez un schematic et la liste des matériaux.",
+        "en": "Draw with blocks or convert a picture, with the game’s real textures, then export a schematic and the materials list.",
+        "es": "Dibuje con bloques o convierta una imagen, con las texturas reales del juego, y exporte un schematic y la lista de materiales.",
+        "de": "Zeichnen Sie mit Blöcken oder wandeln Sie ein Bild um, mit den echten Texturen des Spiels, und exportieren Sie ein Schematic und die Materialliste.",
+        "it": "Disegna con i blocchi o converti un’immagine, con le vere texture del gioco, poi esporta uno schematic e l’elenco dei materiali.",
+        "pt": "Desenhe com blocos ou converta uma imagem, com as texturas reais do jogo, e exporte um schematic e a lista de materiais."
+      },
+      "version": "1.2.2",
+      "auteur": "Kubic",
+      "icone": "icones/pixel-art.png",
+      "fichier": "pixel-art-1.2.2.kubicext",
+      "taille": 37574,
+      "sha256": "0eb2251c428f5e4653efb10ef707077715e4a467e07b1cffc15980d55852b2f5",
+      "permissions": [
+        "enregistrer",
+        "textures"
+      ]
+    },
+    {
+      "id": "testeur-garnitures",
+      "nom": {
+        "fr": "Testeur d’ornements",
+        "en": "Armor trim tester",
+        "es": "Probador de diseños de armadura",
+        "de": "Rüstungsbesatz-Tester",
+        "it": "Prova ornamenti",
+        "pt": "Testador de revestimentos"
+      },
+      "description": {
+        "fr": "Essayez les ornements d’armure sur votre skin, pièce par pièce, avec les textures de votre version du jeu.",
+        "en": "Try armor trims on your skin, piece by piece, with the textures of your game version.",
+        "es": "Pruebe los diseños de armadura en su skin, pieza a pieza, con las texturas de su versión del juego.",
+        "de": "Probieren Sie Rüstungsbesätze an Ihrem Skin aus, Teil für Teil, mit den Texturen Ihrer Spielversion.",
+        "it": "Prova gli ornamenti dell’armatura sul tuo skin, pezzo per pezzo, con le texture della tua versione del gioco.",
+        "pt": "Experimente os revestimentos de armadura no seu skin, peça a peça, com as texturas da sua versão do jogo."
+      },
+      "version": "1.2.2",
+      "auteur": "Kubic",
+      "icone": "icones/testeur-garnitures.png",
+      "fichier": "testeur-garnitures-1.2.2.kubicext",
+      "taille": 25603,
+      "sha256": "edd5ff1378d2194bfe425ac7f06a38daaca7392af2bedd57ebda25e41fe43957",
+      "permissions": [
+        "skin",
+        "textures"
+      ]
+    }
+  ]
+}

@@ -1054,3 +1054,118 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   .tbl th { letter-spacing: .05em; }
   .wrap, .nav-in { width: min(100% - 32px, var(--wrap)); }
 }
+
+/* ============================================================
+   Pages Extensions et Thèmes (extensions.html, themes.html)
+   Les cartes sont dessinées par assets/js/catalogue.js à partir
+   des catalogues JSON publiés à côté des pages.
+   ============================================================ */
+.page-hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2.5rem); position: relative; }
+.page-hero h1 { font-size: clamp(2rem, 4.4vw, 2.9rem); margin-bottom: .9rem; max-width: 22ch; }
+.page-hero .sec-lead { margin-bottom: 1.8rem; }
+
+/* Les étapes d'installation : trois cases numérotées côte à côte. */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 0; padding: 0; list-style: none; }
+.steps li {
+  display: flex; gap: .8rem; align-items: flex-start;
+  padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: var(--r); background: var(--panel);
+  color: var(--txt-2); font-size: .93rem;
+}
+.steps .n {
+  flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px;
+  background: var(--elev); border: 1px solid var(--line-2); color: var(--txt); font-size: .82rem; font-weight: 600;
+}
+.steps em { color: var(--txt); font-style: normal; font-weight: 560; }
+
+.cat-sec { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+.cat-sec + .cat-sec { border-top: 1px solid var(--line); padding-top: clamp(2.5rem, 5vw, 3.5rem); }
+.cat-sec h2 { font-size: clamp(1.35rem, 2.6vw, 1.7rem); margin-bottom: .5rem; }
+.cat-sec .sec-lead { margin-bottom: 1.6rem; }
+
+.cat-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.cat-grid[aria-busy="true"] { min-height: 220px; }
+.cat-card {
+  display: flex; flex-direction: column; gap: .8rem;
+  border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); padding: 1.2rem;
+  transition: border-color .2s, background .2s;
+}
+.cat-card:hover { border-color: var(--line-3); background: var(--panel-2); }
+.cat-head { display: flex; gap: .9rem; align-items: center; }
+.cat-ic { width: 48px; height: 48px; flex: none; border-radius: 10px; image-rendering: pixelated; }
+.cat-titre { display: flex; flex-direction: column; min-width: 0; }
+.cat-titre h3 { font-size: 1.05rem; margin: 0; }
+.cat-meta { color: var(--txt-3); font-size: .82rem; }
+.cat-desc { color: var(--txt-2); font-size: .92rem; flex: 1; margin: 0; }
+.cat-perms { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.cat-perms li {
+  padding: .2em .65em; border: 1px solid var(--line-2); border-radius: 100px; background: var(--panel-2);
+  color: var(--txt-3); font-size: .78rem; line-height: 1.5;
+}
+.cat-perms-aucun { color: var(--txt-3); font-size: .82rem; margin: 0; }
+.cat-foot { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+.cat-size { color: var(--txt-3); font-size: .85rem; }
+.cat-erreur { grid-column: 1 / -1; color: var(--txt-2); font-size: .93rem; padding: 1.2rem; border: 1px dashed var(--line-2); border-radius: var(--r); }
+.cat-note {
+  display: flex; gap: .7rem; align-items: flex-start; margin-top: 1.4rem; padding: 1rem 1.2rem;
+  border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-2); color: var(--txt-2); font-size: .9rem;
+}
+.cat-note svg { flex: none; width: 1.2em; height: 1.2em; margin-top: .1em; color: var(--txt); fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Les cartes d'attente, le temps que le catalogue arrive. */
+.cat-attente { height: 230px; border: 1px solid var(--line); border-radius: var(--r); background: linear-gradient(100deg, var(--panel) 30%, var(--panel-2) 50%, var(--panel) 70%); background-size: 300% 100%; animation: cat-attente 1.6s ease-in-out infinite; }
+@keyframes cat-attente { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .cat-attente { animation: none; } }
+
+/* ------------------------------------------------------------ aperçu d'un thème */
+/* Une fenêtre de Kubic en miniature, peinte avec les couleurs du thème (--t-*). */
+.tmock {
+  --t-bg: #060608; --t-panel: #121316; --t-panel2: #18191d; --t-line: #2d2d32;
+  --t-txt: #ececef; --t-txt2: #85858c; --t-accent: #ececef; --t-on: #0f0f12;
+  position: relative; display: grid; grid-template-columns: 30% 1fr; gap: 6px;
+  aspect-ratio: 16 / 9; padding: 8px; border-radius: 10px; overflow: hidden;
+  background: var(--t-bg); border: 1px solid var(--line-2);
+}
+.tmock.deco::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--t-deco); }
+.tmock i { display: block; border-radius: 4px; }
+.tm-side { display: flex; flex-direction: column; gap: 5px; padding: 7px; border-radius: 6px; background: var(--t-panel); border: 1px solid var(--t-line); }
+.tm-logo { width: 46%; height: 8px; background: var(--t-txt); opacity: .9; margin-bottom: 4px; }
+.tm-item { height: 12px; background: var(--t-panel2); border: 1px solid var(--t-line); }
+.tm-item.on { border-color: var(--t-txt2); background: color-mix(in srgb, var(--t-accent) 14%, var(--t-panel2)); }
+.tm-btn { margin-top: auto; height: 14px; background: var(--t-accent); }
+.tm-main { display: flex; flex-direction: column; gap: 6px; padding: 8px; border-radius: 6px; background: var(--t-panel); border: 1px solid var(--t-line); }
+.tm-title { width: 42%; height: 9px; background: var(--t-txt); opacity: .9; }
+.tm-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; flex: 1; }
+.tm-cards i { background: var(--t-panel2); border: 1px solid var(--t-line); position: relative; }
+.tm-cards i::after { content: ""; position: absolute; left: 6px; right: 40%; bottom: 6px; height: 4px; border-radius: 2px; background: var(--t-txt2); }
+.tm-cards i:first-child::before { content: ""; position: absolute; left: 6px; top: 6px; width: 10px; height: 10px; border-radius: 3px; background: var(--t-accent); }
+.tm-row { height: 6px; width: 82%; background: var(--t-txt2); opacity: .7; }
+.tm-row.court { width: 54%; }
+.theme-card .tmock { margin-bottom: .2rem; }
+
+/* Les habillages livrés avec Kubic : une rangée de miniatures, sans bouton. */
+.skin-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.skin-card { display: flex; flex-direction: column; gap: .6rem; }
+.skin-card b { font-size: .95rem; }
+.skin-card span { color: var(--txt-3); font-size: .84rem; margin-top: -.4rem; }
+
+/* Faire son thème : deux fichiers, montrés tels quels. */
+.code-block {
+  margin: .8rem 0 1.2rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--bg-2); color: var(--txt-2); font: .84rem/1.65 var(--mono); overflow-x: auto; white-space: pre;
+}
+.howto { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2.5rem; }
+.howto h3 { font-size: 1rem; margin-bottom: .4rem; }
+.howto p { color: var(--txt-2); font-size: .93rem; }
+.howto p + p { margin-top: .6rem; }
+
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; }
+  .howto { grid-template-columns: 1fr; }
+}
+
+/* La page où l'on est, dans la barre de navigation. */
+.nav-links a[aria-current="page"] { color: var(--txt); }
+.page-hero .sec-lead em, .cat-sec .sec-lead em, .howto em { font-style: normal; color: var(--txt); font-weight: 560; }
+.howto p + h3, .howto pre + h3 { margin-top: 1.3rem; }
+/* Un bloc de code défile dans sa colonne au lieu de l'élargir (sinon la page déborde sur téléphone). */
+.howto > div { min-width: 0; }

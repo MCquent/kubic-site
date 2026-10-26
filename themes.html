@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="th.metatitle">Themes — Kubic Client</title>
+<meta name="description" data-i18n-attr="content:th.metadesc" content="Themes for Kubic Client: four skins built in, colour themes to download, and how to make your own in two files.">
+<link rel="canonical" href="https://kubicmc.com/themes.html">
+<meta property="og:url" content="https://kubicmc.com/themes.html">
+<meta property="og:image" content="https://kubicmc.com/assets/img/og.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kubic Client">
+<meta property="og:title" content="Themes — Kubic Client">
+<meta property="og:description" content="Give Kubic Client your colours: built-in skins, themes to download, and your own in two files.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/icon.png">
+<meta name="theme-color" content="#08080a">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  /* Même amorce que index.html : thème et langue avant le premier affichage. */
+  (function () {
+    var root = document.documentElement;
+    var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+    root.classList.add('js');
+    root.dataset.theme = get('kubic-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var q = /[?&]lang=([a-z]{2})\b/.exec(location.search);
+    var lang = (q && q[1]) || get('kubic-lang') || 'en';
+    root.dataset.lang = lang;
+    if (lang !== 'en') {
+      root.classList.add('i18n-wait');
+      setTimeout(function () { root.classList.remove('i18n-wait'); }, 1500);
+    }
+  })();
+</script>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9S14.4 18.4 12 21C9.6 18.4 8.4 15.4 8.4 12S9.6 5.6 12 3Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.5v6c0 4.7 3.1 8.6 7.5 10 4.4-1.4 7.5-5.3 7.5-10v-6L12 2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#content" data-i18n="nav.skip">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Kubic — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
+      <span class="brand-name">Kubic</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Main navigation" data-i18n-attr="aria-label:nav.main">
+      <a href="index.html#schematics" data-i18n="nav.viewer">3D viewer</a>
+      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
+      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
+      <a href="themes.html" aria-current="page" data-i18n="nav.themes">Themes</a>
+      <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+
+    <div class="nav-actions">
+      <label class="lang-pick">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <select id="lang-select" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+          <option value="en" lang="en">EN</option>
+          <option value="fr" lang="fr">FR</option>
+          <option value="es" lang="es">ES</option>
+          <option value="de" lang="de">DE</option>
+          <option value="it" lang="it">IT</option>
+          <option value="pt" lang="pt">PT</option>
+        </select>
+      </label>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch theme" data-i18n-attr="aria-label:nav.theme">
+        <svg class="ico-moon"><use href="#i-moon"/></svg>
+        <svg class="ico-sun"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm nav-dl" href="index.html#download">
+        <svg><use href="#i-download"/></svg> <span data-i18n="nav.download">Download</span>
+      </a>
+      <button class="icon-btn nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="ico-menu"><use href="#i-menu"/></svg>
+        <svg class="ico-close"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="doc-back" href="index.html"><svg><use href="#i-chevron"/></svg> <span data-i18n="lg.back">Back to Kubic</span></a>
+      <p class="kicker" data-i18n="th.kicker">Themes</p>
+      <h1 data-i18n="th.title">Give Kubic your colours</h1>
+      <p class="sec-lead" data-i18n="th.lead">Four skins come with Kubic, more themes are here to download, and your own takes two files. Extensions follow the colours of the theme you choose.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span data-i18n="th.step1">Download a theme below: a single <em>.zip</em> file.</span></li>
+        <li><span class="n">2</span><span data-i18n="th.step2">In Kubic, <em>Settings → Appearance → Load a theme</em>, then pick the file.</span></li>
+        <li><span class="n">3</span><span data-i18n="th.step3">It applies at once. <em>None</em> brings back the original look.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cat-sec">
+    <div class="wrap">
+      <h2 data-i18n="th.dl.t">To download</h2>
+      <p class="sec-lead" data-i18n="th.dl.p">Colours only — no image, nothing that reaches outside. Each theme is checked for contrast: small text stays readable on every panel.</p>
+      <div class="cat-grid" data-catalogue="themes" aria-busy="true" aria-live="polite">
+        <div class="cat-attente"></div><div class="cat-attente"></div><div class="cat-attente"></div>
+      </div>
+      <noscript><p class="cat-erreur" data-i18n="cat.noscript.th">The catalogue is shown with JavaScript. The files themselves are in the <a href="themes/">themes/</a> folder.</p></noscript>
+    </div>
+  </section>
+
+  <section class="cat-sec">
+    <div class="wrap">
+      <h2 data-i18n="th.in.t">Built into Kubic</h2>
+      <p class="sec-lead" data-i18n="th.in.p">Nothing to download: <em>Settings → Appearance → Visual theme</em>. They work in dark and light mode.</p>
+      <div class="skin-grid">
+        <div class="skin-card" data-palette='{"bg":"#060608","panel":"#121316","panel-2":"#18191d","line-2":"#2d2d32","txt":"#ececef","txt-3":"#85858c","accent":"#ececef","on-accent":"#0f0f12"}'>
+          <b data-i18n="th.s.none">None</b><span data-i18n="th.s.none.d">The original look, monochrome.</span>
+        </div>
+        <div class="skin-card" data-palette='{"bg":"#060608","panel":"#0e0b14","panel-2":"#141020","line-2":"#2b2140","txt":"#ececef","txt-3":"#85858c","accent":"#f0339e","on-accent":"#ffffff","deco":"linear-gradient(90deg, #35d6e8, #f0339e)"}'>
+          <b data-i18n="th.s.ink">Ink</b><span data-i18n="th.s.ink.d">Ink black, magenta accent, a cyan-to-pink edge.</span>
+        </div>
+        <div class="skin-card" data-palette='{"bg":"#0b0908","panel":"#16120f","panel-2":"#1c1714","line-2":"#322820","txt":"#f0e9e2","txt-3":"#82756a","accent":"#e8a33d","on-accent":"#1a1206"}'>
+          <b data-i18n="th.s.ember">Ember</b><span data-i18n="th.s.ember.d">Warm browns, amber accent.</span>
+        </div>
+        <div class="skin-card" data-palette='{"bg":"#070a0a","panel":"#0f1414","panel-2":"#141a1a","line-2":"#253030","txt":"#e6ecea","txt-3":"#6b7d7a","accent":"#4fb9a8","on-accent":"#04120f"}'>
+          <b data-i18n="th.s.blueprint">Blueprint</b><span data-i18n="th.s.blueprint.d">Slate green-grey, teal accent.</span>
+        </div>
+        <div class="skin-card" data-palette='{"bg":"#07080f","panel":"#0f1220","panel-2":"#141827","line-2":"#252c43","txt":"#e8eaf4","txt-3":"#6f7794","accent":"#6f8cf0","on-accent":"#060a18","deco":"linear-gradient(90deg, #6f8cf0, #8a6ee0)"}'>
+          <b data-i18n="th.s.indigo">Indigo</b><span data-i18n="th.s.indigo.d">Night blue, periwinkle accent, an aurora edge.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat-sec" id="make">
+    <div class="wrap">
+      <h2 data-i18n="th.mk.t">Make your own</h2>
+      <p class="sec-lead" data-i18n="th.mk.p">A theme is a <em>.zip</em> with two files. Change only the colours you want: the others keep their value.</p>
+      <div class="howto">
+        <div>
+          <h3><code>theme.json</code></h3>
+<pre class="code-block">{
+  "id": "my-theme",
+  "nom": "My theme",
+  "auteur": "you",
+  "version": "1.0"
+}</pre>
+          <h3><code>theme.css</code></h3>
+<pre class="code-block">:root,
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  --bg:        #0b0b0f;   /* window background */
+  --panel:     #131319;   /* cards */
+  --panel-2:   #17171f;
+  --line:      #23232c;   /* borders */
+  --txt:       #e8e8ef;   /* main text */
+  --txt-2:     #b4b4c2;
+  --txt-3:     #8a8a99;   /* small text */
+  --accent:    #7c5cff;   /* buttons, selection */
+  --on-accent: #ffffff;   /* text on the accent */
+}</pre>
+        </div>
+        <div>
+          <h3 data-i18n="th.mk.img.t">Images</h3>
+          <p data-i18n="th.mk.img.p">Put them in the archive and call them by a relative path, for example <code>url(images/background.png)</code>. Accepted: png, jpg, webp, gif, woff and woff2.</p>
+          <h3 data-i18n="th.mk.safe.t">Nothing from outside</h3>
+          <p data-i18n="th.mk.safe.p">Remote addresses are removed when the theme is installed: a theme never contacts anyone. Archives are limited to 200 files and 32 MB.</p>
+          <h3 data-i18n="th.mk.edit.t">Tweak and reload</h3>
+          <p data-i18n="th.mk.edit.p">Loading an archive whose <code>theme.json</code> has the same <code>id</code> replaces the installed version: change a colour, load it again, see the result.</p>
+          <h3 data-i18n="th.mk.both.t">Dark and light</h3>
+          <p data-i18n="th.mk.both.p">Define the three selectors above to impose your colours in both modes, or only <code>:root[data-theme="light"]</code> to style light mode alone. If a theme goes wrong, <em>None</em> brings everything back.</p>
+          <h3 data-i18n="th.mk.share.t">Share it</h3>
+          <p data-i18n="th.mk.share.p">Send the <em>.zip</em> to your friends, or write to <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a> to have it listed here — with images you have the right to share.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
+      <div>
+        <b>Kubic</b>
+        <small data-i18n="foot.tagline">Minecraft launcher and server manager</small>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer" data-i18n-attr="aria-label:foot.aria">
+      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
+      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
+      <a href="themes.html" data-i18n="nav.themes">Themes</a>
+      <a href="index.html#download" data-i18n="nav.download">Download</a>
+      <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="legal.html" data-i18n="nav.legal">Legal notice &amp; privacy</a>
+    </nav>
+    <p class="foot-contact">
+      <svg><use href="#i-mail"/></svg> <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a>
+    </p>
+    <p class="foot-legal" data-i18n="foot.short">© <span data-year>2026</span> Kubic — MIT licence. Not affiliated with Mojang Studios or Microsoft.</p>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/catalogue.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+{
+  "format": 1,
+  "themes": [
+    {
+      "id": "ocean",
+      "nom": {
+        "fr": "Océan",
+        "en": "Ocean",
+        "es": "Océano",
+        "de": "Ozean",
+        "it": "Oceano",
+        "pt": "Oceano"
+      },
+      "description": {
+        "fr": "Bleu des grands fonds, accent turquoise.",
+        "en": "Deep-sea blue with a turquoise accent.",
+        "es": "Azul de las profundidades, acento turquesa.",
+        "de": "Tiefseeblau mit türkisem Akzent.",
+        "it": "Blu degli abissi, accento turchese.",
+        "pt": "Azul das profundezas, destaque turquesa."
+      },
+      "version": "1.0",
+      "auteur": "Kubic",
+      "fichier": "ocean.zip",
+      "taille": 860,
+      "sha256": "05be73541dacff52955e36fd3905f9d52dab9ffd4c0f5556a2dd7ea816f24cfb",
+      "apercu": {
+        "bg": "#050b10",
+        "panel": "#0c1722",
+        "panel-2": "#101d2a",
+        "line": "#142230",
+        "line-2": "#1e3142",
+        "txt": "#e6f1f7",
+        "txt-2": "#a3bccb",
+        "txt-3": "#7a98ab",
+        "accent": "#3cc8d8",
+        "on-accent": "#031216"
+      }
+    },
+    {
+      "id": "foret",
+      "nom": {
+        "fr": "Forêt",
+        "en": "Forest",
+        "es": "Bosque",
+        "de": "Wald",
+        "it": "Foresta",
+        "pt": "Floresta"
+      },
+      "description": {
+        "fr": "Sous-bois sombre, accent vert mousse.",
+        "en": "Dark undergrowth with a moss-green accent.",
+        "es": "Sotobosque oscuro, acento verde musgo.",
+        "de": "Dunkles Unterholz mit moosgrünem Akzent.",
+        "it": "Sottobosco scuro, accento verde muschio.",
+        "pt": "Sub-bosque escuro, destaque verde-musgo."
+      },
+      "version": "1.0",
+      "auteur": "Kubic",
+      "fichier": "foret.zip",
+      "taille": 853,
+      "sha256": "34b075ebfcabcd8a873f5de5a17ffe2a1db7c7c7aa36ad200f45ef9e1d373ce4",
+      "apercu": {
+        "bg": "#060906",
+        "panel": "#0f150f",
+        "panel-2": "#141c13",
+        "line": "#182117",
+        "line-2": "#243022",
+        "txt": "#e9efe6",
+        "txt-2": "#aab7a3",
+        "txt-3": "#82917a",
+        "accent": "#8fc46a",
+        "on-accent": "#0a1205"
+      }
+    },
+    {
+      "id": "amethyste",
+      "nom": {
+        "fr": "Améthyste",
+        "en": "Amethyst",
+        "es": "Amatista",
+        "de": "Amethyst",
+        "it": "Ametista",
+        "pt": "Ametista"
+      },
+      "description": {
+        "fr": "Violet de géode, accent lilas — la couleur de l’icône de Kubic.",
+        "en": "Geode purple with a lilac accent — the colour of Kubic’s icon.",
+        "es": "Violeta de geoda, acento lila: el color del icono de Kubic.",
+        "de": "Geodenviolett mit Fliederakzent — die Farbe des Kubic-Symbols.",
+        "it": "Viola di geode, accento lilla: il colore dell’icona di Kubic.",
+        "pt": "Violeta de geoda, destaque lilás — a cor do ícone do Kubic."
+      },
+      "version": "1.0",
+      "auteur": "Kubic",
+      "fichier": "amethyste.zip",
+      "taille": 877,
+      "sha256": "fa685c0db6cc49e73415f0c02075fc2c80522beecf45c789a29f8b836df8a32d",
+      "apercu": {
+        "bg": "#08060d",
+        "panel": "#120e1c",
+        "panel-2": "#181226",
+        "line": "#1e172b",
+        "line-2": "#2b2140",
+        "txt": "#eee9f8",
+        "txt-2": "#b5aacb",
+        "txt-3": "#8f83a8",
+        "accent": "#a98bff",
+        "on-accent": "#120a24"
+      }
+    }
+  ]
+}

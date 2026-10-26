@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="ex.metatitle">Extensions — Kubic Client</title>
+<meta name="description" data-i18n-attr="content:ex.metadesc" content="Extensions for Kubic Client: banner maker, pixel art up to 4096 × 4096, armor trim tester, skin editor, circle generator, End Gateway Finder. Free, installed in one click from the app.">
+<link rel="canonical" href="https://kubicmc.com/extensions.html">
+<meta property="og:url" content="https://kubicmc.com/extensions.html">
+<meta property="og:image" content="https://kubicmc.com/assets/img/og.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kubic Client">
+<meta property="og:title" content="Extensions — Kubic Client">
+<meta property="og:description" content="Small tools that open inside Kubic Client: banner maker, pixel art, armor trims, skins, circles, End gateways.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/icon.png">
+<meta name="theme-color" content="#08080a">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  /* Même amorce que index.html : thème et langue avant le premier affichage. */
+  (function () {
+    var root = document.documentElement;
+    var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+    root.classList.add('js');
+    root.dataset.theme = get('kubic-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    var q = /[?&]lang=([a-z]{2})\b/.exec(location.search);
+    var lang = (q && q[1]) || get('kubic-lang') || 'en';
+    root.dataset.lang = lang;
+    if (lang !== 'en') {
+      root.classList.add('i18n-wait');
+      setTimeout(function () { root.classList.remove('i18n-wait'); }, 1500);
+    }
+  })();
+</script>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9S14.4 18.4 12 21C9.6 18.4 8.4 15.4 8.4 12S9.6 5.6 12 3Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.5v6c0 4.7 3.1 8.6 7.5 10 4.4-1.4 7.5-5.3 7.5-10v-6L12 2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#content" data-i18n="nav.skip">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="Kubic — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
+      <span class="brand-name">Kubic</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Main navigation" data-i18n-attr="aria-label:nav.main">
+      <a href="index.html#schematics" data-i18n="nav.viewer">3D viewer</a>
+      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
+      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="extensions.html" aria-current="page" data-i18n="nav.extensions">Extensions</a>
+      <a href="themes.html" data-i18n="nav.themes">Themes</a>
+      <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+
+    <div class="nav-actions">
+      <label class="lang-pick">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <select id="lang-select" aria-label="Language" data-i18n-attr="aria-label:nav.language">
+          <option value="en" lang="en">EN</option>
+          <option value="fr" lang="fr">FR</option>
+          <option value="es" lang="es">ES</option>
+          <option value="de" lang="de">DE</option>
+          <option value="it" lang="it">IT</option>
+          <option value="pt" lang="pt">PT</option>
+        </select>
+      </label>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch theme" data-i18n-attr="aria-label:nav.theme">
+        <svg class="ico-moon"><use href="#i-moon"/></svg>
+        <svg class="ico-sun"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm nav-dl" href="index.html#download">
+        <svg><use href="#i-download"/></svg> <span data-i18n="nav.download">Download</span>
+      </a>
+      <button class="icon-btn nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="ico-menu"><use href="#i-menu"/></svg>
+        <svg class="ico-close"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="doc-back" href="index.html"><svg><use href="#i-chevron"/></svg> <span data-i18n="lg.back">Back to Kubic</span></a>
+      <p class="kicker" data-i18n="ex.kicker">Extensions</p>
+      <h1 data-i18n="ex.title">Small tools, right inside Kubic</h1>
+      <p class="sec-lead" data-i18n="ex.lead">Extensions open in Kubic’s Extensions tab. They use the textures of the game installed on your PC, work offline, take on the colours of your theme — and keep what you were doing when you switch tabs.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span data-i18n="ex.step1">In Kubic, open the <em>Extensions</em> tab: this catalogue is listed there.</span></li>
+        <li><span class="n">2</span><span data-i18n="ex.step2">Click <em>Install</em>. Kubic shows what the extension may do, then checks the file’s fingerprint.</span></li>
+        <li><span class="n">3</span><span data-i18n="ex.step3">Or download the <em>.kubicext</em> file below and drop it on the Extensions tab.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cat-sec">
+    <div class="wrap">
+      <h2 data-i18n="ex.cat.t">The catalogue</h2>
+      <p class="sec-lead" data-i18n="ex.cat.p">Free, and updated from here: as soon as a new version is published, Kubic offers the update in its Extensions tab.</p>
+      <div class="cat-grid" data-catalogue="extensions" aria-busy="true" aria-live="polite">
+        <div class="cat-attente"></div><div class="cat-attente"></div><div class="cat-attente"></div>
+      </div>
+      <noscript><p class="cat-erreur" data-i18n="cat.noscript">The catalogue is shown with JavaScript. The files themselves are in the <a href="extensions/">extensions/</a> folder.</p></noscript>
+      <p class="cat-note"><svg><use href="#i-shield"/></svg><span data-i18n="ex.safe">Each extension runs in its own sealed frame: no network, no access to your files or to your Minecraft account. It only gets what its card lists, and Kubic asks you again before changing your skin. Game textures are never shipped with an extension: they are read from your own game.</span></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
+      <div>
+        <b>Kubic</b>
+        <small data-i18n="foot.tagline">Minecraft launcher and server manager</small>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer" data-i18n-attr="aria-label:foot.aria">
+      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
+      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
+      <a href="themes.html" data-i18n="nav.themes">Themes</a>
+      <a href="index.html#download" data-i18n="nav.download">Download</a>
+      <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="legal.html" data-i18n="nav.legal">Legal notice &amp; privacy</a>
+    </nav>
+    <p class="foot-contact">
+      <svg><use href="#i-mail"/></svg> <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a>
+    </p>
+    <p class="foot-legal" data-i18n="foot.short">© <span data-year>2026</span> Kubic — MIT licence. Not affiliated with Mojang Studios or Microsoft.</p>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/catalogue.js"></script>
+</body>
+</html>
