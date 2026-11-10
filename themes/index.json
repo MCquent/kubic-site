@@ -108,6 +108,52 @@
         "accent": "#a98bff",
         "on-accent": "#120a24"
       }
+    },
+    {
+      "id": "kitagawa",
+      "nom": "Kitagawa",
+      "description": "",
+      "version": "1.0",
+      "auteur": "Kubic",
+      "fichier": "kitagawa.zip",
+      "taille": 621188,
+      "sha256": "1bb1b1d3e8bfd492657063bba46071949d5b4607c2a4a68429a5cffa2fee5253",
+      "apercu": {
+        "bg": "#0b090d",
+        "panel": "#100d14",
+        "panel-2": "#131017",
+        "line": "#1c1a1e",
+        "line-2": "#28272a",
+        "txt": "#f5eff3",
+        "txt-2": "#cabec6",
+        "txt-3": "#b3a4ac",
+        "accent": "#ff5c9d",
+        "on-accent": "#ffffff"
+      },
+      "image": "apercus/kitagawa.jpg"
+    },
+    {
+      "id": "quintuplees",
+      "nom": "Quintuplées",
+      "description": "",
+      "version": "1.0",
+      "auteur": "Kubic",
+      "fichier": "quintuplees.zip",
+      "taille": 949850,
+      "sha256": "a46b91218b2c5032243f3e5895ac08e1ff3546d3aed56807a124fc6923b1d843",
+      "apercu": {
+        "bg": "#fdf6fa",
+        "panel": "#fefbfd",
+        "panel-2": "#fffefe",
+        "line": "#f4d5e5",
+        "line-2": "#f0c6dc",
+        "txt": "#4a2c3d",
+        "txt-2": "#6d465b",
+        "txt-3": "#7d5069",
+        "accent": "#ef5f9e",
+        "on-accent": "#ffffff"
+      },
+      "image": "apercus/quintuplees.jpg"
     }
   ]
 }

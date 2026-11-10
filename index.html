@@ -21,7 +21,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="assets/img/icon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/icon.png">
-<meta name="theme-color" content="#08080a">
+<meta name="theme-color" content="#07060c">
 <meta name="color-scheme" content="dark light">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
@@ -118,6 +118,9 @@
     <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7.2 2.3L12.5 20 21 3Z"/><path d="m10.2 12.8 4.3-4.3"/></symbol>
     <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-7.5 9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
 
@@ -126,19 +129,19 @@
 <!-- ─────────────────────────── barre de navigation ─────────────────────────── -->
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a class="brand" href="#" aria-label="Kubic — home" data-i18n-attr="aria-label:nav.home">
-      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
-      <span class="brand-name">Kubic</span>
+    <a class="brand" href="#top" aria-label="Kubic Client — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="34" height="34" alt="">
+      <span class="brand-name">Kubic <b>Client</b></span>
     </a>
 
+    <!-- data-spy : la rubrique à l'écran est marquée dans la barre (main.js). -->
     <nav class="nav-links" id="nav-links" aria-label="Main navigation" data-i18n-attr="aria-label:nav.main">
-      <a href="#schematics" data-i18n="nav.viewer">3D viewer</a>
-      <a href="#servers" data-i18n="nav.servers">Servers</a>
-      <a href="#multiplayer" data-i18n="nav.multiplayer">Multiplayer</a>
-      <a href="#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="#top" class="is-active" data-spy="top"><svg aria-hidden="true"><use href="#i-home"/></svg> <span data-i18n="nav.accueil">Home</span></a>
+      <a href="#features" data-spy="features" data-i18n="nav.features">Features</a>
       <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
       <a href="themes.html" data-i18n="nav.themes">Themes</a>
-      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#download" data-spy="download" data-i18n="nav.dlsec">Download</a>
+      <a href="#faq" data-spy="faq" data-i18n="nav.faq">FAQ</a>
     </nav>
 
     <div class="nav-actions">
@@ -157,8 +160,8 @@
         <svg class="ico-moon"><use href="#i-moon"/></svg>
         <svg class="ico-sun"><use href="#i-sun"/></svg>
       </button>
-      <a class="btn btn-primary btn-sm nav-dl" href="#download">
-        <svg><use href="#i-download"/></svg> <span data-i18n="nav.download">Download</span>
+      <a class="btn btn-outline btn-sm nav-dl" href="#download">
+        <svg><use href="#i-windows"/></svg> <span data-i18n="nav.download">Download</span> <svg class="dl-ico"><use href="#i-download"/></svg>
       </a>
       <button class="icon-btn nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
         <svg class="ico-menu"><use href="#i-menu"/></svg>
@@ -170,147 +173,93 @@
 
 <main id="content">
 
-<!-- ─────────────────────────── hero ─────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true"><span class="glow-a"></span><span class="glow-b"></span></div>
+<!-- ─────────────────────────── haut de page ─────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="glow-a"></span><span class="glow-b"></span>
+    <svg class="cube" style="--s:3.4rem; --o:.34; left:44%; top:38%"><use href="#i-cube"/></svg>
+    <svg class="cube" style="--s:5.25rem; --o:.22; --t:-3s; right:1.5%; top:9%"><use href="#i-cube"/></svg>
+    <svg class="cube" style="--s:4rem; --o:.2; --t:-6s; left:42%; bottom:20%"><use href="#i-cube"/></svg>
+  </div>
 
-  <div class="wrap hero-in">
-    <p class="eyebrow" data-reveal>
-      <span class="dot"></span> <span data-i18n="hero.eyebrow">Windows 10 / 11 · free · no account</span>
-    </p>
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <p class="pill" data-reveal><svg aria-hidden="true"><use href="#i-cube"/></svg> <span data-i18n="hero.pill">Minecraft launcher</span></p>
 
-    <h1 data-reveal data-i18n="hero.title">
-      Your Minecraft launcher and your servers, <span class="muted">in a single window.</span>
-    </h1>
+      <h1 data-reveal>
+        <span class="h1-name">Kubic <span class="grad">Client</span></span>
+        <span class="h1-sub" data-i18n="hero.sub">Your next-generation Minecraft launcher</span>
+      </h1>
 
-    <p class="lead" data-reveal data-i18n="hero.lead">
-      Kubic Client creates, downloads and runs your local servers — Vanilla, Paper, Purpur, Folia,
-      Fabric, Forge, NeoForge, Velocity — and launches the game itself.
-      Java included, no command line, no file to edit by hand.
-    </p>
+      <p class="lead" data-reveal data-i18n="hero.lead2">
+        Enjoy a better game experience with Kubic Client: fast, customisable and packed with
+        features to get the most out of Minecraft.
+      </p>
 
-    <div class="hero-cta" data-reveal>
-      <a class="btn btn-primary btn-lg" href="#download">
-        <svg><use href="#i-windows"/></svg>
-        <span data-i18n="hero.cta">Download for Windows</span>
-      </a>
-      <a class="btn btn-ghost btn-lg" href="#servers">
-        <svg><use href="#i-play"/></svg>
-        <span data-i18n="hero.tour">See what it does</span>
-      </a>
+      <div class="hero-cta" data-reveal>
+        <a class="btn btn-primary btn-xl" href="#download">
+          <svg><use href="#i-windows"/></svg>
+          <span data-i18n="hero.cta2">Download now</span>
+          <svg class="arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+
+      <p class="hero-points" data-reveal><svg aria-hidden="true"><use href="#i-bolt"/></svg> <span data-i18n="hero.points">Free • Lightweight • Secure</span></p>
+
+      <p class="hero-meta" data-reveal>
+        <span data-i18n="w.version">Version</span> <span data-dl-version>1.3.3</span> ·
+        <span data-dl-size>116 MB</span> ·
+        <span data-i18n="hero.installer">64-bit <code>.exe</code> installer</span> ·
+        <a href="#download" data-whats-new-link data-i18n="hero.whatsnew">what's new</a>
+      </p>
     </div>
 
-    <p class="hero-meta" data-reveal>
-      <span data-i18n="w.version">Version</span> <span data-dl-version>1.3.2</span> ·
-      <span data-dl-size>116 MB</span> ·
-      <span data-i18n="hero.installer">64-bit <code>.exe</code> installer</span> ·
-      <a href="#download" data-whats-new-link data-i18n="hero.whatsnew">what's new</a>
-    </p>
-
-    <!-- maquette de l'application, reproduite en HTML/CSS d'après ses captures -->
-    <div class="shot" data-reveal>
-      <div class="app" role="img" aria-label="Kubic's server manager, showing a stopped Vanilla 1.12.2 server" data-i18n-attr="aria-label:app.aria">
-        <div class="app-tb">
-          <span class="tb-brand"><img src="assets/img/icon.png" alt=""> Kubic client</span>
-          <span class="chip" data-i18n="app.running">1 server running</span>
-          <span class="chip">v<span data-dl-version>1.3.2</span></span>
-          <span class="tb-win"><i></i><i></i><i></i></span>
-        </div>
-
-        <div class="app-body">
-          <aside class="app-side">
-            <div class="side-head">
-              <img class="side-logo" src="assets/img/icon.png" alt="">
-              <div>
-                <strong>Kubic<br><span data-i18n="app.sm">server manager</span></strong>
-                <small data-i18n="app.manage">Manage your local servers</small>
-              </div>
-            </div>
-            <div class="side-label"><span data-i18n="app.myservers">My servers</span> <span class="chip chip-xs chip-ok">Java 21 · 17 · 8</span></div>
-            <div class="side-item is-active">
-              <span class="si-ico"><svg><use href="#i-cube"/></svg></span>
-              <span class="si-txt"><b>Vanilla 1.12.2</b><small>vanilla 1.12.2</small></span>
-              <span class="si-dot"></span>
-            </div>
-            <div class="side-item">
-              <span class="si-ico"><svg><use href="#i-cube"/></svg></span>
-              <span class="si-txt"><b>Fabric 1.21.4</b><small>fabric 1.21.4</small></span>
-              <span class="si-dot"></span>
-            </div>
-            <div class="side-item">
-              <span class="si-ico"><svg><use href="#i-cube"/></svg></span>
-              <span class="si-txt"><b>Paper 1.20.4</b><small>paper 1.20.4</small></span>
-              <span class="si-dot is-on"></span>
-            </div>
-            <div class="side-foot">
-              <span class="mini-btn mini-primary">+ <span data-i18n="app.new">New server</span></span>
-              <span class="mini-btn"><svg><use href="#i-refresh"/></svg> <span data-i18n="app.refresh">Refresh</span></span>
-              <span class="seg"><span>Launcher</span><span class="is-on" data-i18n="app.servers">Servers</span><span data-i18n="app.ai">AI</span></span>
-            </div>
-          </aside>
-
-          <div class="app-main">
-            <div class="app-head">
-              <div class="ah-title">
-                <span class="ah-dot"></span>
-                <h3>Vanilla 1.12.2</h3>
-                <span class="chip" data-i18n="app.stopped">Stopped</span>
-              </div>
-              <div class="ah-sub">vanilla 1.12.2 · <span data-i18n="app.port">Port</span> 25565 · RAM 4096 <span data-i18n="app.mb">MB</span> · <span data-i18n="app.players">Players</span> 0</div>
-              <div class="ah-actions">
-                <span class="mini-btn mini-primary"><svg><use href="#i-play"/></svg> <span data-i18n="app.start">Start</span></span>
-                <span class="mini-btn"><svg><use href="#i-stop"/></svg> <span data-i18n="app.stop">Stop</span></span>
-                <span class="mini-ico"><svg><use href="#i-refresh"/></svg></span>
-                <span class="mini-ico"><svg><use href="#i-power"/></svg></span>
-                <span class="mini-ico"><svg><use href="#i-folder"/></svg></span>
-                <span class="mini-ico"><svg><use href="#i-trash"/></svg></span>
-              </div>
-            </div>
-
-            <div class="app-tabs">
-              <span class="is-active" data-i18n="app.t.overview">Overview</span><span data-i18n="app.t.console">Console</span><span data-i18n="app.t.properties">Properties</span>
-              <span data-i18n="app.t.files">Files</span><span data-i18n="app.t.players">Players</span><span data-i18n="app.t.worlds">Worlds</span>
-              <span data-i18n="app.t.map">Map</span><span data-i18n="app.t.backups">Backups</span><span data-i18n="app.t.tasks">Tasks</span>
-              <span data-i18n="app.t.network">Network</span><span data-i18n="app.t.settings">Settings</span>
-            </div>
-
-            <div class="app-grid">
-              <div class="stat"><small data-i18n="app.s.status">STATUS</small><b data-i18n="app.stopped">Stopped</b><i>vanilla 1.12.2</i></div>
-              <div class="stat"><small data-i18n="app.s.cpu">PROCESSOR</small><b>0.0 %</b><i data-i18n="app.s.cores">16 cores available</i></div>
-              <div class="stat"><small data-i18n="app.s.memory">MEMORY</small><b data-i18n="app.s.zero">0 B</b><i data-i18n="app.s.alloc">of 4096 MB allocated</i></div>
-              <div class="stat"><small data-i18n="app.s.players">PLAYERS</small><b>0</b><i data-i18n="app.s.nobody">Nobody online</i></div>
-            </div>
-
-            <div class="app-cols">
-              <div class="card-mini">
-                <header data-i18n="app.info">Information</header>
-                <dl>
-                  <dt data-i18n="app.type">Type</dt><dd>vanilla</dd>
-                  <dt data-i18n="app.mcversion">Minecraft version</dt><dd>1.12.2</dd>
-                  <dt data-i18n="app.port">Port</dt><dd>25565</dd>
-                  <dt data-i18n="app.memory">Memory</dt><dd data-i18n="app.aikar">4096 MB (Aikar flags)</dd>
-                  <dt data-i18n="app.javainuse">Java in use</dt><dd data-i18n="app.runtime">Java 8 — built-in runtime</dd>
-                </dl>
-              </div>
-              <div class="card-mini">
-                <header data-i18n="app.quick">Quick access</header>
-                <div class="quick">
-                  <span data-i18n="app.t.files">Files</span><span data-i18n="app.plugins">Plugins</span>
-                  <span data-i18n="app.t.properties">Properties</span><span data-i18n="app.t.players">Players</span>
-                  <span data-i18n="app.t.backups">Backups</span><span data-i18n="app.t.tasks">Tasks</span>
-                </div>
-                <div class="cmd">java -Xms2048M -Xmx4096M -XX:+UseG1GC -XX:+ParallelRefProcEnabled …</div>
-              </div>
-            </div>
-
-            <div class="card-mini">
-              <header><span data-i18n="app.lastlines">Latest console lines</span> <span class="chip chip-xs" data-i18n="app.openconsole">Open the console</span></header>
-              <pre class="log"><span><i>[18:04:12]</i> [Server thread/INFO]: Starting minecraft server version 1.12.2</span><span><i>[18:04:13]</i> [Server thread/INFO]: Loading properties</span><span><i>[18:04:15]</i> [Server thread/INFO]: Preparing level "world"</span><span class="w"><i>[18:04:18]</i> [Server thread/WARN]: Can't keep up! Did the system time change?</span><span class="g"><i>[18:04:21]</i> [Server thread/INFO]: Done (6.284s)! For help, type "help"</span></pre>
-            </div>
-          </div>
-        </div>
+    <!-- une vraie capture de l'application (tools : voir le README), penchée par la feuille de style -->
+    <div class="hero-vis" data-reveal>
+      <div class="tilt">
+        <img src="assets/img/app-servers.webp" width="1800" height="1125" fetchpriority="high"
+             alt="Kubic Client's server manager: the overview of a Minecraft server, with its status, memory, players and quick access" data-i18n-attr="alt:hero.shot">
       </div>
-      <div class="shot-fade" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <ul class="feats">
+      <li data-reveal><a class="feat" href="#servers"><svg class="plein" aria-hidden="true"><use href="#i-bolt"/></svg> <span data-i18n="feat.1">Optimised<br>performance</span></a></li>
+      <li data-reveal><a class="feat" href="themes.html"><svg aria-hidden="true"><use href="#i-gear"/></svg> <span data-i18n="feat.2">Full<br>customisation</span></a></li>
+      <li data-reveal><a class="feat" href="extensions.html"><svg aria-hidden="true"><use href="#i-puzzle"/></svg> <span data-i18n="feat.3">Mods &amp; extensions,<br>easy to install</span></a></li>
+      <li data-reveal><a class="feat" href="#security"><svg aria-hidden="true"><use href="#i-shield"/></svg> <span data-i18n="feat.4">100% secure</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─────────────────────────── explorer ─────────────────────────── -->
+<section class="sec explore" id="features">
+  <div class="hero-bg" aria-hidden="true">
+    <svg class="cube" style="--s:4.4rem; --o:.2; --t:-2s; left:.5%; top:22%"><use href="#i-cube"/></svg>
+    <svg class="cube" style="--s:5.75rem; --o:.2; --t:-5s; right:1%; bottom:14%"><use href="#i-cube"/></svg>
+  </div>
+  <div class="wrap split">
+    <div class="split-vis" data-reveal>
+      <div class="tilt tilt-left">
+        <img src="assets/img/app-schematics.webp" width="1800" height="1125" loading="lazy"
+             alt="Kubic Client's Schematics screen: a redstone machine shown in 3D, with its list of materials" data-i18n-attr="alt:ex.shot">
+      </div>
+    </div>
+
+    <div class="split-txt" data-reveal>
+      <p class="pill"><svg aria-hidden="true"><use href="#i-cube"/></svg> <span data-i18n="ex.pill">A unique experience</span></p>
+      <h2 data-i18n="ex.title">Explore Minecraft differently</h2>
+      <p class="sec-lead" data-i18n="ex.lead">With Kubic Client, enjoy a complete, intuitive launcher designed for demanding players.</p>
+      <ul class="checks">
+        <li><span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="ex.c1">A modern, intuitive interface</span></li>
+        <li><span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="ex.c2">Optimised performance</span></li>
+        <li><span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="ex.c3">Quick access to your versions and mods</span></li>
+        <li><span class="ok"><svg aria-hidden="true"><use href="#i-check"/></svg></span> <span data-i18n="ex.c4">Regular updates</span></li>
+      </ul>
+      <a class="btn btn-outline btn-lg" href="#servers">
+        <span data-i18n="ex.cta">Discover all the features</span> <svg class="arrow"><use href="#i-arrow"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -334,7 +283,7 @@
       <div class="app-tb">
         <span class="tb-brand"><img src="assets/img/icon.png" alt=""> Kubic client</span>
         <span class="chip" data-i18n="app.norun">No server running</span>
-        <span class="chip">v<span data-dl-version>1.3.2</span></span>
+        <span class="chip">v<span data-dl-version>1.3.3</span></span>
         <span class="tb-win"><i></i><i></i><i></i></span>
       </div>
 
@@ -661,27 +610,10 @@
     </div>
 
     <div class="split-vis" data-reveal>
-      <div class="mini-app" role="img" aria-label="Mock-up of the launcher" data-i18n-attr="aria-label:la.aria">
-        <div class="ma-head" data-i18n="la.m.head">My instances</div>
-        <div class="ma-item is-active">
-          <span class="ma-ico"><svg><use href="#i-layers"/></svg></span>
-          <span class="ma-txt"><b>1.21.4</b><small>Fabric · 4 <span data-i18n="la.m.gb">GB</span> · Java 21</small></span>
-          <span class="ma-go"><svg><use href="#i-play"/></svg></span>
-        </div>
-        <div class="ma-item">
-          <span class="ma-ico"><svg><use href="#i-layers"/></svg></span>
-          <span class="ma-txt"><b>1.12.2</b><small>Forge · 6 <span data-i18n="la.m.gb">GB</span> · Java 8</small></span>
-          <span class="ma-go"><svg><use href="#i-play"/></svg></span>
-        </div>
-        <div class="ma-item">
-          <span class="ma-ico"><svg><use href="#i-layers"/></svg></span>
-          <span class="ma-txt"><b>1.20.1</b><small>Quilt · 4 <span data-i18n="la.m.gb">GB</span> · Java 17</small></span>
-          <span class="ma-go"><svg><use href="#i-play"/></svg></span>
-        </div>
-        <div class="ma-prog"><span style="--p:72%"></span></div>
-        <div class="ma-log" data-i18n="la.m.log">
-          <b>Downloading</b> assets 1,412 / 1,960 — SHA-1 check
-        </div>
+      <!-- une vraie capture du launcher, posée à plat -->
+      <div class="tilt tilt-flat">
+        <img src="assets/img/app-launcher.webp" width="1800" height="1125" loading="lazy"
+             alt="Kubic Client's launcher: the list of instances and the overview of one of them, with its play time and account" data-i18n-attr="alt:la.shot">
       </div>
     </div>
   </div>
@@ -703,7 +635,7 @@
       </div>
     </div>
 
-    <div class="banner" data-reveal>
+    <div class="banner" id="security" data-reveal>
       <span class="banner-ico"><svg><use href="#i-shield"/></svg></span>
       <div>
         <h3 data-i18n="sec.title">Your Microsoft password never goes through Kubic.</h3>
@@ -782,11 +714,11 @@
         <div class="dl-txt">
           <h3 data-i18n="dl.os">Windows 10 / 11 — 64-bit</h3>
           <p>
-            <span data-i18n="dl.installer"><code>.exe</code> installer</span> · <span data-i18n="w.version.lc">version</span> <span data-dl-version>1.3.2</span> ·
-            <span data-dl-size>116 MB</span> · <span data-i18n="dl.released">released</span> <span data-dl-date>26 October 2026</span>
+            <span data-i18n="dl.installer"><code>.exe</code> installer</span> · <span data-i18n="w.version.lc">version</span> <span data-dl-version>1.3.3</span> ·
+            <span data-dl-size>116 MB</span> · <span data-i18n="dl.released">released</span> <span data-dl-date>10 November 2026</span>
           </p>
         </div>
-        <a class="btn btn-primary btn-lg" href="https://github.com/MCquent/kubic/releases/download/v1.3.2/Kubic-Setup-1.3.2.exe" download data-dl-file>
+        <a class="btn btn-primary btn-lg" href="https://github.com/MCquent/kubic/releases/download/v1.3.3/Kubic-Setup-1.3.3.exe" download data-dl-file>
           <svg><use href="#i-download"/></svg> <span data-i18n="dl.button">Download</span>
         </a>
       </div>
@@ -794,14 +726,14 @@
       <div class="dl-hash">
         <div class="dl-hash-row">
           <span class="dl-hash-label">SHA-256</span>
-          <code class="dl-hash-val" data-dl-sha>3f08a6a3459fe99ffbd7419517a21ba3ab4be2c797b196f155552d59ab521018</code>
+          <code class="dl-hash-val" data-dl-sha>31b871d3489ccef91ce22563cb555486c5590c6236592a20e644992fe561b5ce</code>
           <button class="icon-btn" type="button" data-copy="[data-dl-sha]" aria-label="Copy the SHA-256 hash" data-i18n-attr="aria-label:dl.copyhash">
             <svg><use href="#i-copy"/></svg>
           </button>
           <span class="copied" role="status" aria-live="polite"></span>
         </div>
         <p data-i18n="dl.verify">To check the file before running it, compare this hash with the one PowerShell gives you:
-          <code>Get-FileHash .\<span data-dl-filename>Kubic-Setup-1.3.2.exe</span></code></p>
+          <code>Get-FileHash .\<span data-dl-filename>Kubic-Setup-1.3.3.exe</span></code></p>
       </div>
 
       <ol class="dl-steps">
@@ -813,7 +745,7 @@
       </ol>
 
       <div class="dl-new" id="whats-new" hidden>
-        <h4><span data-i18n="dl.new">What's new in version</span> <span data-dl-version>1.3.2</span></h4>
+        <h4><span data-i18n="dl.new">What's new in version</span> <span data-dl-version>1.3.3</span></h4>
         <ul data-dl-notes></ul>
       </div>
 
@@ -892,14 +824,20 @@
   </div>
 </section>
 
-<!-- ─────────────────────────── cta final ─────────────────────────── -->
+<!-- ─────────────────────────── bandeau final ─────────────────────────── -->
 <section class="cta">
-  <div class="wrap" data-reveal>
-    <h2 data-i18n="cta.title">One installer, one click, a server up and running.</h2>
-    <a class="btn btn-primary btn-lg" href="https://github.com/MCquent/kubic/releases/download/v1.3.2/Kubic-Setup-1.3.2.exe" download data-dl-file>
-      <svg><use href="#i-download"/></svg> <span data-i18n="cta.button">Download Kubic for Windows</span>
-    </a>
-    <p class="hero-meta"><span data-i18n="w.version">Version</span> <span data-dl-version>1.3.2</span> · <span data-dl-size>116 MB</span> · <span data-i18n="cta.free">free</span></p>
+  <div class="wrap">
+    <div class="cta-card" data-reveal>
+      <span class="cta-ico" aria-hidden="true"><svg><use href="#i-cube"/></svg></span>
+      <div class="cta-txt">
+        <h2 data-i18n="cta.title2">Ready to dive into a new adventure?</h2>
+        <p data-i18n="cta.sub">Download Kubic Client now and discover a new way to play Minecraft.</p>
+        <p class="hero-meta"><span data-i18n="w.version">Version</span> <span data-dl-version>1.3.3</span> · <span data-dl-size>116 MB</span> · <span data-i18n="cta.free">free</span></p>
+      </div>
+      <a class="btn btn-primary btn-lg" href="https://github.com/MCquent/kubic/releases/download/v1.3.3/Kubic-Setup-1.3.3.exe" download data-dl-file>
+        <svg><use href="#i-windows"/></svg> <span data-i18n="hero.cta2">Download now</span> <svg class="arrow"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -907,32 +845,27 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <div class="foot-brand">
-      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
-      <div>
-        <b>Kubic</b>
-        <small data-i18n="foot.tagline">Minecraft launcher and server manager</small>
-      </div>
-    </div>
+    <a class="brand" href="#top" aria-label="Kubic Client — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="34" height="34" alt="">
+      <span class="brand-name">Kubic <b>Client</b></span>
+    </a>
     <nav class="foot-links" aria-label="Footer" data-i18n-attr="aria-label:foot.aria">
-      <a href="#servers" data-i18n="nav.servers">Servers</a>
-      <a href="#multiplayer" data-i18n="nav.multiplayer">Multiplayer</a>
-      <a href="#inventories" data-i18n="nav.inventories">Inventories</a>
-      <a href="#launcher" data-i18n="nav.launcher">Launcher</a>
-      <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
-      <a href="themes.html" data-i18n="nav.themes">Themes</a>
-      <a href="#java">Java</a>
-      <a href="#download" data-i18n="nav.download">Download</a>
+      <a href="legal.html" data-i18n="foot.notice">Legal notice</a>
+      <a href="legal.html#privacy" data-i18n="foot.privacy">Privacy policy</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <a href="legal.html" data-i18n="nav.legal">Legal notice &amp; privacy</a>
+      <a href="mailto:contact@kubicmc.com" data-i18n="foot.contact">Contact</a>
     </nav>
-    <p class="foot-contact">
-      <svg><use href="#i-mail"/></svg> <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a>
-    </p>
-    <p class="foot-legal" data-i18n="foot.legal">
+    <div class="foot-side">
+      <div class="foot-social">
+        <a href="https://github.com/MCquent/kubic" rel="noopener" aria-label="Kubic Client on GitHub" data-i18n-attr="aria-label:foot.github"><svg class="plein" aria-hidden="true"><use href="#i-github"/></svg></a>
+        <a href="mailto:contact@kubicmc.com" aria-label="Write to contact@kubicmc.com" data-i18n-attr="aria-label:foot.mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+      </div>
+      <p class="foot-copy">© <span data-year>2026</span> Kubic Client · <span data-i18n="foot.licence">MIT licence</span></p>
+    </div>
+    <p class="foot-legal" data-i18n="foot.legal2">
       Independent project, not affiliated with Mojang Studios or Microsoft. Minecraft is a trademark of
       Mojang Studios; the game textures shown on this page belong to them and are shown for
-      illustration only, and the schematic in the 3D view is the work of its credited author. © <span data-year>2026</span> Kubic — MIT licence.
+      illustration only, and the schematic in the 3D view is the work of its credited author.
     </p>
   </div>
 </footer>

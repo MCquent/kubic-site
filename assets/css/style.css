@@ -1,38 +1,45 @@
 /* ============================================================
-   Kubic — site vitrine
-   Palette reprise de l'application : monochrome, sombre par
-   défaut, thème clair en simple redéfinition des variables.
-   Seule couleur propre : le violet de l'icône, en touches.
+   Kubic Client — site vitrine
+   Refonte de novembre 2026 : un noir violacé, le violet de
+   l'icône en accent (boutons, titres, halos), des captures de
+   l'application en perspective. Sombre par défaut ; le thème
+   clair reste une simple redéfinition des variables.
    ============================================================ */
 
 :root {
-  --bg:          #08080a;
-  --bg-2:        #0c0c0f;
-  --panel:       #111115;
-  --panel-2:     #16161b;
-  --elev:        #1c1c22;
-  --elev-2:      #23232a;
-  --line:        #212128;
-  --line-2:      #2c2c35;
-  --line-3:      #3a3a45;
+  --bg:          #07060c;
+  --bg-2:        #0b0a13;
+  --panel:       #100f1a;
+  --panel-2:     #151423;
+  --elev:        #1b1a2c;
+  --elev-2:      #232138;
+  --line:        #1e1c2f;
+  --line-2:      #2a2741;
+  --line-3:      #3d3960;
 
   /* --txt-3 sert aux petits textes : 4,5:1 au moins sur tous les fonds (WCAG AA).
      --txt-4 est réservé au décor (maquettes), jamais à un texte à lire. */
-  --txt:         #e9e9ef;
-  --txt-2:       #a3a3b0;
-  --txt-3:       #85858f;
-  --txt-4:       #4b4b57;
+  --txt:         #f3f2f9;
+  --txt-2:       #b4b1c8;
+  --txt-3:       #918eab;
+  --txt-4:       #56536f;
 
-  --accent:      #e9e9ef;
-  --accent-hi:   #ffffff;
-  --on-accent:   #0b0b0e;
+  /* L'accent : le violet des boutons. --accent-grad est son dégradé, --accent-txt
+     sa version lisible en texte (liens, mots mis en avant) sur le fond de la page. */
+  --accent:      #7c3aed;
+  --accent-hi:   #8b5cf6;
+  --on-accent:   #ffffff;
+  --accent-grad: linear-gradient(135deg, #6d28d9 0%, #8b3dff 60%, #9d5cff 100%);
+  --accent-txt:  #a78bfa;
+  --accent-soft: rgba(124, 58, 237, .14);
+  --accent-line: rgba(139, 92, 246, .38);
 
   /* Couleurs de l'icône : contour violet, remplissage bleu ciel → rose. */
-  --brand:       #8b6cff;
-  --brand-deep:  #5b24d9;
+  --brand:       #8b5cf6;
+  --brand-deep:  #6d28d9;
   --brand-sky:   #afcaed;
   --brand-pink:  #d673c6;
-  --brand-glow:  rgba(116, 72, 240, .16);
+  --brand-glow:  rgba(124, 58, 237, .24);
 
   --ok:          #56a67f;
   --warn:        #c9a54a;
@@ -42,49 +49,54 @@
   --hair:        rgba(255,255,255,.03);
   --hair-2:      rgba(255,255,255,.06);
   --hair-3:      rgba(255,255,255,.14);
-  --glow:        rgba(255,255,255,.055);
-  --grid:        rgba(255,255,255,.028);
+  --glow:        rgba(139, 92, 246, .10);
+  --grid:        rgba(167, 139, 250, .035);
 
   --r-sm: 8px;
-  --r:    12px;
-  --r-lg: 18px;
-  --r-xl: 24px;
+  --r:    14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
 
   --shadow:    0 1px 2px rgba(0,0,0,.6), 0 8px 28px rgba(0,0,0,.45);
   --shadow-xl: 0 2px 6px rgba(0,0,0,.5), 0 40px 90px -20px rgba(0,0,0,.75);
+  --shadow-accent: 0 12px 34px -10px rgba(124, 58, 237, .75), 0 2px 0 rgba(255,255,255,.16) inset;
 
   --font: "Segoe UI Variable Display", "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
   --mono: "Cascadia Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
 
-  --wrap: 1180px;
-  --nav-h: 64px;
+  /* La largeur utile suit la fenêtre : 88 % de sa largeur, jamais moins de 1180 px ni plus de 2100. */
+  --wrap: clamp(1180px, 88vw, 2100px);
+  --nav-h: 4.5rem;
 
   /* Fond de la scène 3D : lu aussi par assets/js/viewer/demo.js pour le moteur. */
   --viewer-bg:   #101014;
 }
 
 :root[data-theme="light"] {
-  --bg:          #f7f7f9;
-  --bg-2:        #f0f0f4;
+  --bg:          #f8f7fd;
+  --bg-2:        #f1effa;
   --panel:       #ffffff;
-  --panel-2:     #fafafc;
-  --elev:        #ececf1;
-  --elev-2:      #e2e2ea;
-  --line:        #e4e4ea;
-  --line-2:      #d6d6df;
-  --line-3:      #b7b7c4;
+  --panel-2:     #fbfaff;
+  --elev:        #eceaf6;
+  --elev-2:      #e1def0;
+  --line:        #e5e2f0;
+  --line-2:      #d7d3e8;
+  --line-3:      #b8b3d2;
 
-  --txt:         #15151a;
-  --txt-2:       #494955;
-  --txt-3:       #6a6a78;
-  --txt-4:       #9b9ba9;
+  --txt:         #15131f;
+  --txt-2:       #48455c;
+  --txt-3:       #68657e;
+  --txt-4:       #9c99b3;
 
-  --accent:      #1b1b21;
-  --accent-hi:   #000000;
+  --accent:      #6d28d9;
+  --accent-hi:   #7c3aed;
   --on-accent:   #ffffff;
+  --accent-txt:  #6d28d9;
+  --accent-soft: rgba(109, 40, 217, .08);
+  --accent-line: rgba(109, 40, 217, .30);
 
-  --brand:       #5b24d9;
-  --brand-glow:  rgba(116, 72, 240, .10);
+  --brand:       #6d28d9;
+  --brand-glow:  rgba(124, 58, 237, .14);
 
   --viewer-bg:   #dedee6;
 
@@ -96,18 +108,21 @@
   --hair:        rgba(0,0,0,.03);
   --hair-2:      rgba(0,0,0,.05);
   --hair-3:      rgba(0,0,0,.12);
-  --glow:        rgba(0,0,0,.04);
-  --grid:        rgba(0,0,0,.035);
+  --glow:        rgba(109, 40, 217, .07);
+  --grid:        rgba(109, 40, 217, .05);
 
-  --shadow:    0 1px 2px rgba(15,15,25,.08), 0 8px 24px rgba(15,15,25,.07);
-  --shadow-xl: 0 2px 6px rgba(15,15,25,.08), 0 40px 90px -25px rgba(15,15,25,.25);
+  --shadow:    0 1px 2px rgba(25,15,50,.08), 0 8px 24px rgba(25,15,50,.07);
+  --shadow-xl: 0 2px 6px rgba(25,15,50,.08), 0 40px 90px -25px rgba(25,15,50,.25);
+  --shadow-accent: 0 12px 30px -12px rgba(109, 40, 217, .6), 0 2px 0 rgba(255,255,255,.2) inset;
 }
 
 /* ------------------------------------------------------------ base */
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+/* Sur un grand écran, tout grandit avec la fenêtre : 16 px à 1440 de large, 18,4 à 1920, 21,6 à 2560.
+   En rem et en % : la taille de police choisie dans le navigateur reste respectée. */
+html { font-size: clamp(100%, 0.5vw + 0.55rem, 140%); scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 /* Langue autre que l'anglais : la page reste masquée le temps que i18n.js la traduise
@@ -172,12 +187,12 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
 .wrap { width: min(100% - 40px, var(--wrap)); margin-inline: auto; }
-.wrap-narrow { width: min(100% - 40px, 800px); }
+.wrap-narrow { width: min(100% - 40px, 52rem); }
 .muted { color: var(--txt-3); }
 
 /* ------------------------------------------------------------ boutons */
 .btn {
-  --h: 42px;
+  --h: 2.625rem;
   display: inline-flex; align-items: center; justify-content: center; gap: .55em;
   height: var(--h); padding: 0 1.1rem;
   border: 1px solid var(--line-2); border-radius: 10px;
@@ -190,18 +205,27 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .btn:active { transform: translateY(0); }
 
 .btn-primary {
-  background: var(--accent); color: var(--on-accent); border-color: transparent;
-  box-shadow: 0 1px 0 rgba(255,255,255,.14) inset, var(--shadow);
+  background: var(--accent-grad); color: var(--on-accent); border-color: transparent;
+  box-shadow: var(--shadow-accent);
 }
-.btn-primary:hover { background: var(--accent-hi); border-color: transparent; }
+.btn-primary:hover { background: var(--accent-grad); border-color: transparent; filter: brightness(1.12); }
+
+/* Le bouton au contour violet : « Télécharger » de la barre, « Découvrir… ». */
+.btn-outline { background: var(--accent-soft); border-color: var(--accent-line); color: var(--txt); }
+.btn-outline:hover { background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent-hi); }
+.btn-outline svg { color: var(--accent-txt); }
 
 .btn-ghost { background: transparent; }
-.btn-sm { --h: 36px; font-size: .88rem; padding: 0 .9rem; }
-.btn-lg { --h: 52px; font-size: 1rem; padding: 0 1.5rem; border-radius: 12px; }
+.btn-sm { --h: 2.375rem; font-size: .88rem; padding: 0 1rem; }
+.btn-lg { --h: 3.25rem; font-size: 1rem; padding: 0 1.5rem; border-radius: 14px; }
+/* Le grand bouton du haut de page : une pilule, avec sa flèche. */
+.btn-xl { --h: 3.625rem; font-size: 1.06rem; font-weight: 620; padding: 0 1.9rem; border-radius: 100px; gap: .7em; }
+.btn .arrow { width: 1em; height: 1em; transition: translate .18s; }
+.btn:hover .arrow { translate: 3px 0; }
 
 .icon-btn {
   display: inline-grid; place-items: center;
-  width: 36px; height: 36px; padding: 0; flex: none;
+  width: 2.25rem; height: 2.25rem; padding: 0; flex: none;
   border: 1px solid var(--line-2); border-radius: 10px;
   background: var(--panel-2); color: var(--txt-2); cursor: pointer;
   font-size: 1.05rem; transition: color .18s, border-color .18s, background .18s;
@@ -228,18 +252,35 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   display: flex; align-items: center; gap: 1.2rem;
 }
 
-.brand { display: inline-flex; align-items: center; gap: .6rem; font-weight: 620; letter-spacing: -.01em; }
-.brand-logo { width: 30px; height: 30px; display: block; flex: none; }
-.brand-name { font-size: 1.05rem; }
-
-.nav-links { display: flex; gap: .3rem; margin-left: .9rem; }
-.nav-links a {
-  padding: .45rem .7rem; border-radius: 8px;
-  color: var(--txt-2); font-size: .92rem; transition: color .18s, background .18s;
+.brand { display: inline-flex; align-items: center; gap: .65rem; font-weight: 700; letter-spacing: -.015em; }
+.brand-logo { width: 2.125rem; height: 2.125rem; display: block; flex: none; }
+.brand-name { font-size: 1.16rem; white-space: nowrap; }
+/* « Client », en violet : le nom complet, comme sur le logo. */
+.brand-name b, .grad { font-weight: inherit; color: var(--accent-txt); }
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .grad {
+    background: linear-gradient(120deg, #8b5cf6 10%, #7c3aed 55%, #a855f7 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  :root[data-theme="light"] .grad { background-image: linear-gradient(120deg, #7c3aed, #6d28d9 60%, #9333ea); }
 }
-.nav-links a:hover { color: var(--txt); background: var(--hair-2); }
 
-.nav-actions { display: flex; align-items: center; gap: .5rem; margin-left: auto; }
+.nav-links { display: flex; gap: .2rem; margin-inline: auto; }
+.nav-links a {
+  position: relative; display: inline-flex; align-items: center; gap: .45rem;
+  padding: .5rem .85rem; border-radius: 8px;
+  color: var(--txt-2); font-size: .95rem; font-weight: 520; transition: color .18s, background .18s;
+}
+.nav-links a svg { width: 1em; height: 1em; }
+.nav-links a:hover { color: var(--txt); background: var(--hair-2); }
+/* Le lien de la rubrique (ou de la page) où l'on est : violet, souligné d'un trait. */
+.nav-links a.is-active, .nav-links a[aria-current="page"] { color: var(--accent-txt); }
+.nav-links a.is-active::after, .nav-links a[aria-current="page"]::after {
+  content: ""; position: absolute; left: .7rem; right: .7rem; bottom: -.72rem; height: 2px;
+  border-radius: 2px; background: var(--accent-hi);
+}
+
+.nav-actions { display: flex; align-items: center; gap: .5rem; }
 .nav-burger { display: none; }
 .nav-burger .ico-close { display: none; }
 .nav-burger[aria-expanded="true"] .ico-close { display: block; }
@@ -247,16 +288,16 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
 /* sélecteur de langue : un vrai <select>, habillé comme les boutons voisins */
 .lang-pick {
-  position: relative; display: inline-flex; align-items: center; height: 36px;
+  position: relative; display: inline-flex; align-items: center; height: 2.25rem;
   border: 1px solid var(--line-2); border-radius: 10px;
   background: var(--panel-2); color: var(--txt-2);
   transition: color .18s, border-color .18s, background .18s;
 }
 .lang-pick:hover, .lang-pick:focus-within { color: var(--txt); border-color: var(--line-3); background: var(--elev); }
-.lang-pick svg { position: absolute; left: 10px; font-size: .95rem; pointer-events: none; }
+.lang-pick svg { position: absolute; left: .65rem; font-size: .95rem; pointer-events: none; }
 .lang-pick select {
   appearance: none; -webkit-appearance: none;
-  height: 100%; padding: 0 12px 0 31px; border: 0; border-radius: 10px;
+  height: 100%; padding: 0 .75rem 0 2rem; border: 0; border-radius: 10px;
   background: transparent; color: inherit; font: 600 .8rem/1 var(--font); letter-spacing: .04em;
   cursor: pointer;
 }
@@ -264,51 +305,113 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .lang-pick option { background: var(--panel); color: var(--txt); }
 
 /* ------------------------------------------------------------ hero */
-.hero { position: relative; padding: clamp(3rem, 8vw, 6.5rem) 0 0; overflow: hidden; }
-.hero-in { position: relative; text-align: center; }
+.hero { position: relative; padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
 
-.hero-bg { position: absolute; inset: -20% 0 auto; height: 900px; pointer-events: none; }
+/* Le décor : deux halos violets, une trame très légère, des cubes en fil de fer. */
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
 .hero-bg::before {
   content: ""; position: absolute; inset: 0;
   background:
     linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 64px 64px,
     linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 64px 64px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 70% at 75% 35%, #000 10%, transparent 72%);
 }
-.hero-bg .glow-a, .hero-bg .glow-b {
-  position: absolute; border-radius: 50%; filter: blur(90px);
-}
+.hero-bg .glow-a, .hero-bg .glow-b { position: absolute; border-radius: 50%; filter: blur(100px); }
 .hero-bg .glow-a {
-  width: 620px; height: 420px; left: 50%; top: 14%; translate: -50% 0;
-  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
+  width: 47.5rem; height: 32.5rem; right: -6%; top: 2%;
+  background: radial-gradient(circle, var(--brand-glow), transparent 68%);
 }
 .hero-bg .glow-b {
-  width: 380px; height: 300px; right: 8%; top: 42%;
+  width: 26rem; height: 20rem; left: -8%; top: 46%;
   background: radial-gradient(circle, var(--glow), transparent 70%);
 }
+/* Les cubes : l'icône de Kubic, en contour seul, posée çà et là. */
+.cube {
+  position: absolute; width: var(--s, 64px); height: var(--s, 64px);
+  color: var(--accent-hi); opacity: var(--o, .3); stroke-width: .9;
+  filter: drop-shadow(0 0 14px rgba(139, 92, 246, .55));
+  animation: flotte 9s ease-in-out infinite; animation-delay: var(--t, 0s);
+}
+@keyframes flotte { 50% { translate: 0 -10px; rotate: 4deg; } }
+@media (prefers-reduced-motion: reduce) { .cube { animation: none; } }
 
-.eyebrow {
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .32rem .8rem .32rem .6rem;
-  border: 1px solid var(--line-2); border-radius: 100px;
-  background: var(--panel); color: var(--txt-2);
-  font-size: .82rem; margin-bottom: 1.6rem;
+.hero-grid {
+  position: relative; display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center;
 }
-.eyebrow .dot {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--ok);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent);
-}
+.hero-txt { min-width: 0; }
 
-.hero h1 { margin-bottom: 1.2rem; }
-.hero h1 .muted { display: block; }
-.lead {
-  color: var(--txt-2); font-size: clamp(1rem, 1.6vw, 1.12rem);
-  max-width: 62ch; margin-inline: auto;
+/* La pastille au-dessus d'un titre : « Launcher Minecraft », « Une expérience unique ». */
+.pill {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .38rem .95rem .38rem .7rem; margin-bottom: 1.3rem;
+  border: 1px solid var(--accent-line); border-radius: 100px;
+  background: var(--accent-soft); color: var(--txt);
+  font-size: .86rem; font-weight: 560;
 }
-.hero-cta { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; margin: 2rem 0 1rem; }
-.hero-meta { color: var(--txt-3); font-size: .85rem; }
+.pill svg { width: 1.15em; height: 1.15em; color: var(--accent-txt); }
+
+.hero h1 { margin-bottom: 1.1rem; }
+.h1-name {
+  display: block; font-size: clamp(3rem, 7.4vw, 5.6rem); font-weight: 800;
+  letter-spacing: -.04em; line-height: .98;
+}
+.h1-sub {
+  display: block; margin-top: .55rem; max-width: 14.5em; text-wrap: balance;
+  font-size: clamp(1.45rem, 3.1vw, 2.35rem); font-weight: 480;
+  letter-spacing: -.02em; line-height: 1.14; color: var(--txt-2);
+}
+.lead { color: var(--txt-2); font-size: clamp(1rem, 1.5vw, 1.1rem); max-width: 50ch; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1.9rem 0 1rem; }
+.hero-points {
+  display: flex; align-items: center; gap: .6rem; margin-left: 2.2rem;
+  color: var(--txt-2); font-size: .95rem;
+}
+.hero-points svg { width: 1.1em; height: 1.1em; color: var(--accent-txt); fill: currentColor; stroke: none; }
+.hero-meta { color: var(--txt-3); font-size: .85rem; margin-top: .9rem; }
 .hero-meta a { color: var(--txt-2); text-decoration: underline; text-underline-offset: 3px; }
 .hero-meta a:hover { color: var(--txt); }
+
+/* ------------------------------------------------------------ capture en perspective
+   Une vraie capture de l'application, légèrement tournée, sur un halo violet.
+   Sur téléphone elle se remet à plat : penchée et petite, elle serait illisible. */
+.tilt { position: relative; perspective: 1800px; }
+.tilt::before {
+  content: ""; position: absolute; inset: 8% -4% -10%; border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 60%, rgba(124, 58, 237, .5), transparent 68%);
+  filter: blur(46px); pointer-events: none;
+}
+.tilt img {
+  position: relative; display: block; width: 100%; height: auto;
+  border-radius: 14px; border: 1px solid rgba(167, 139, 250, .32);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 34px 70px -24px rgba(0,0,0,.85), 0 0 60px -18px rgba(139, 92, 246, .55);
+  transform: rotateY(-13deg) rotateX(5deg) rotate(1.2deg); transform-origin: 30% 50%;
+  transition: transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.tilt-left img { transform: rotateY(13deg) rotateX(5deg) rotate(-1.2deg); transform-origin: 70% 50%; }
+.tilt:hover img { transform: rotateY(-6deg) rotateX(2deg); }
+.tilt-left:hover img { transform: rotateY(6deg) rotateX(2deg); }
+/* Une capture posée à plat (section du launcher) : même cadre, sans perspective. */
+.tilt-flat img, .tilt-flat:hover img { transform: none; }
+:root[data-theme="light"] .tilt img { border-color: rgba(109, 40, 217, .28); box-shadow: 0 30px 60px -26px rgba(40, 20, 90, .5), 0 0 50px -20px rgba(124, 58, 237, .45); }
+@media (prefers-reduced-motion: reduce) { .tilt img { transition: none; } }
+
+/* ------------------------------------------------------------ les quatre atouts, sous le haut de page */
+.feats {
+  position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  margin-top: clamp(2.2rem, 5vw, 3.6rem);
+}
+.feat {
+  display: flex; align-items: center; gap: 1rem; min-width: 0;
+  padding: 1.15rem 1.3rem; border: 1px solid var(--line-2); border-radius: var(--r);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  color: var(--txt); font-size: .98rem; font-weight: 540; line-height: 1.3;
+  transition: border-color .2s, transform .2s, background .2s;
+}
+a.feat:hover { border-color: var(--accent-line); transform: translateY(-2px); background: var(--panel-2); }
+.feat svg { flex: none; width: 2.1rem; height: 2.1rem; color: var(--accent-hi); stroke-width: 1.5; }
+.feat svg.plein { fill: currentColor; stroke: none; }
 
 /* ------------------------------------------------------------ maquette de l'app
    Toute la maquette est en em : elle se met à l'échelle comme une capture.
@@ -491,7 +594,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 @keyframes pouls { 50% { opacity: .35; } }
 
 .sch {
-  font-size: 13px; line-height: 1.5; text-align: left;
+  font-size: .8125rem; line-height: 1.5; text-align: left;
   border: 1px solid var(--line-2); border-radius: var(--r-lg);
   background: var(--bg-2); box-shadow: var(--shadow-xl); overflow: hidden;
 }
@@ -637,11 +740,11 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 /* la liste des matériaux, avec la texture de chaque bloc */
 .mats-list { display: grid; gap: .55em; align-content: start; overflow: auto; min-height: 0; flex: 1; padding-right: .3em; }
 .mats-list li {
-  display: grid; grid-template-columns: 22px 1fr auto; column-gap: .65em; row-gap: .3em; align-items: center;
+  display: grid; grid-template-columns: 1.7em 1fr auto; column-gap: .65em; row-gap: .3em; align-items: center;
 }
 .mat-ico {
   --cases: 10;   /* côté, en tuiles, de la planche ; posé par demo.js d'après le plan */
-  grid-row: span 2; width: 22px; height: 22px; border-radius: 4px;
+  grid-row: span 2; width: 1.7em; height: 1.7em; border-radius: 4px;
   /* --atlas est posé par demo.js d'après le plan ; l'adresse écrite ici ne sert que sans JS. */
   background: var(--atlas, url("../viewer/atlas-26.3.png")) no-repeat;
   background-size: calc(var(--cases) * 100%) calc(var(--cases) * 100%);
@@ -656,7 +759,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .mat-bar { grid-column: 2 / span 2; height: 3px; border-radius: 3px; background: var(--elev); overflow: hidden; }
 .mat-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-sky), var(--brand-pink)); }
 
-.sc-ticks { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: .8rem 2.2rem; margin-top: clamp(2rem, 4vw, 2.75rem); }
+.sc-ticks { grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); gap: .8rem 2.2rem; margin-top: clamp(2rem, 4vw, 2.75rem); }
 
 .sch:fullscreen { display: flex; flex-direction: column; border: 0; border-radius: 0; }
 .sch:fullscreen .sch-body { flex: 1; min-height: 0; }
@@ -705,27 +808,40 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
 .sec-head { max-width: 68ch; margin-bottom: clamp(2rem, 4vw, 3.2rem); }
 .kicker {
-  color: var(--txt-3); font-size: .8rem; font-weight: 600;
+  color: var(--accent-txt); font-size: .8rem; font-weight: 600;
   letter-spacing: .14em; text-transform: uppercase; margin-bottom: .8rem;
 }
+
+/* « Explorez Minecraft autrement » : la capture à gauche, les quatre points à droite. */
+.explore { position: relative; overflow: hidden; }
+.explore .split { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+.explore h2 { font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 720; letter-spacing: -.03em; margin-bottom: 1rem; }
+.explore .sec-lead { font-size: 1.08rem; }
+.checks { display: grid; gap: .95rem; margin: 1.7rem 0 2rem; }
+.checks li { display: flex; align-items: center; gap: .9rem; color: var(--txt); font-size: 1.02rem; }
+.checks .ok {
+  flex: none; display: grid; place-items: center; width: 1.55rem; height: 1.55rem; border-radius: 50%;
+  background: var(--accent-grad); color: #fff; box-shadow: 0 4px 14px -4px rgba(124, 58, 237, .8);
+}
+.checks .ok svg { width: .9rem; height: .9rem; stroke-width: 2.6; }
 .sec-head h2 { margin-bottom: .9rem; }
 .sec-lead { color: var(--txt-2); font-size: 1.02rem; max-width: 64ch; }
 
 .cards {
   display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18.125rem, 1fr));
 }
 .card {
   border: 1px solid var(--line); border-radius: var(--r); background: var(--panel);
   padding: 1.4rem;
   transition: border-color .2s, transform .2s, background .2s;
 }
-.card:hover { border-color: var(--line-3); transform: translateY(-2px); background: var(--panel-2); }
+.card:hover { border-color: var(--accent-line); transform: translateY(-2px); background: var(--panel-2); }
 .card-ico {
-  display: grid; place-items: center; width: 38px; height: 38px;
-  border: 1px solid var(--line-2); border-radius: 10px;
-  background: linear-gradient(160deg, var(--elev), var(--panel-2));
-  font-size: 1.15rem; margin-bottom: 1rem; color: var(--txt);
+  display: grid; place-items: center; width: 2.5rem; height: 2.5rem;
+  border: 1px solid var(--accent-line); border-radius: 11px;
+  background: var(--accent-soft);
+  font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-txt);
 }
 .card h3 { margin-bottom: .45rem; }
 .card p { color: var(--txt-2); font-size: .92rem; }
@@ -737,7 +853,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
 .ticks { display: grid; gap: .7rem; margin-top: 1.5rem; }
 .ticks li { display: flex; gap: .7rem; color: var(--txt-2); font-size: .94rem; }
-.ticks svg { flex: none; width: 1.05rem; height: 1.05rem; margin-top: .28rem; color: var(--ok); stroke-width: 2; }
+.ticks svg { flex: none; width: 1.05rem; height: 1.05rem; margin-top: .28rem; color: var(--accent-txt); stroke-width: 2.2; }
 
 /* inventaire façon Minecraft */
 .mc-panel {
@@ -850,7 +966,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   padding: clamp(1.4rem, 3vw, 2.2rem);
 }
 .banner-ico {
-  flex: none; display: grid; place-items: center; width: 44px; height: 44px;
+  flex: none; display: grid; place-items: center; width: 2.75rem; height: 2.75rem;
   border: 1px solid var(--line-2); border-radius: 12px; background: var(--elev); font-size: 1.3rem;
 }
 .banner h3 { font-size: 1.15rem; margin-bottom: .6rem; }
@@ -882,7 +998,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   background: linear-gradient(160deg, var(--panel-2), var(--panel));
 }
 .dl-os {
-  display: grid; place-items: center; width: 52px; height: 52px;
+  display: grid; place-items: center; width: 3.25rem; height: 3.25rem;
   border: 1px solid var(--line-2); border-radius: 14px; background: var(--elev); font-size: 1.5rem;
 }
 .dl-txt { flex: 1 1 260px; }
@@ -937,7 +1053,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   border: 1px solid var(--line); border-radius: var(--r); background: var(--panel);
   transition: border-color .2s;
 }
-.faq details[open] { border-color: var(--line-3); }
+.faq details[open] { border-color: var(--accent-line); }
 .faq summary {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding: 1.05rem 1.25rem; cursor: pointer; font-weight: 560; font-size: .98rem;
@@ -949,27 +1065,38 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .faq p { padding: 0 1.25rem 1.25rem; color: var(--txt-2); font-size: .94rem; max-width: 78ch; }
 
 /* ------------------------------------------------------------ cta + pied */
-.cta { padding: clamp(4rem, 9vw, 7rem) 0; text-align: center; position: relative; }
-.cta::before {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 60% at 50% 50%, var(--brand-glow), transparent 70%);
-  pointer-events: none;
+/* Le bandeau « Prêt à plonger… » : une carte, l'icône, la phrase, le bouton. */
+.cta { padding: clamp(2.5rem, 6vw, 4.5rem) 0; position: relative; }
+.cta-card {
+  position: relative; display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); flex-wrap: wrap;
+  padding: clamp(1.4rem, 3vw, 2.1rem) clamp(1.4rem, 3.4vw, 2.6rem);
+  border: 1px solid var(--line-2); border-radius: var(--r-lg); overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 140% at 100% 50%, var(--brand-glow), transparent 70%),
+    linear-gradient(160deg, var(--panel-2), var(--panel));
 }
-.cta h2 { margin-bottom: 1.8rem; position: relative; }
-.cta .btn { position: relative; }
-.cta .hero-meta { margin-top: 1rem; position: relative; }
+.cta-ico { flex: none; display: grid; place-items: center; width: 3.75rem; height: 3.75rem; color: var(--accent-hi); }
+.cta-ico svg { width: 100%; height: 100%; stroke-width: 1.25; filter: drop-shadow(0 0 12px rgba(139, 92, 246, .7)); }
+.cta-txt { flex: 1 1 320px; min-width: 0; }
+.cta-txt h2 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); margin-bottom: .35rem; }
+.cta-txt p { color: var(--txt-2); font-size: .98rem; }
+.cta-txt .hero-meta { margin-top: .5rem; }
 
-.foot { border-top: 1px solid var(--line); background: var(--bg-2); padding: 2.5rem 0; }
-.foot-in { display: grid; gap: 1.2rem; }
-.foot-brand { display: flex; align-items: center; gap: .7rem; }
-.foot-brand b { display: block; font-size: .98rem; }
-.foot-brand small { color: var(--txt-3); font-size: .84rem; }
-.foot-links { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
-.foot-links a { color: var(--txt-2); font-size: .9rem; }
+.foot { border-top: 1px solid var(--line); background: var(--bg); padding: 2.2rem 0 2.4rem; }
+.foot-in { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.2rem 2rem; }
+.foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 2.4rem; }
+.foot-links a { color: var(--txt-2); font-size: .95rem; transition: color .18s; }
 .foot-links a:hover { color: var(--txt); }
-.foot-contact { display: flex; align-items: center; gap: .5rem; color: var(--txt-2); font-size: .9rem; }
-.foot-contact svg { color: var(--txt-3); }
-.foot-legal { color: var(--txt-3); font-size: .82rem; max-width: 74ch; }
+.foot-side { display: grid; justify-items: end; gap: .55rem; }
+.foot-social { display: flex; gap: .5rem; }
+.foot-social a {
+  display: grid; place-items: center; width: 2.375rem; height: 2.375rem; border-radius: 10px;
+  color: var(--txt-2); font-size: 1.25rem; transition: color .18s, background .18s;
+}
+.foot-social a:hover { color: var(--txt); background: var(--hair-2); }
+.foot-social svg.plein { fill: currentColor; stroke: none; }
+.foot-copy { color: var(--txt-3); font-size: .84rem; white-space: nowrap; }
+.foot-legal { grid-column: 1 / -1; color: var(--txt-3); font-size: .8rem; max-width: 96ch; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 
 /* ------------------------------------------------------------ page légale */
 .doc { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3.5rem, 8vw, 6rem); }
@@ -1007,16 +1134,27 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 }
 
 /* ------------------------------------------------------------ responsive */
-@media (max-width: 1000px) {
-  .java-wrap { grid-template-columns: 1fr; }
-  .split { grid-template-columns: 1fr; }
-  .split-rev .split-txt { order: 0; }
-  .duo { grid-template-columns: 1fr; }
-  .nav-links { margin-left: 0; }
-  .nav-links a { padding: .45rem .5rem; }
+@media (max-width: 1180px) {
+  .nav-links a { padding: .5rem .55rem; font-size: .92rem; }
+  .nav-links a.is-active::after, .nav-links a[aria-current="page"]::after { left: .45rem; right: .45rem; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
+  .java-wrap { grid-template-columns: 1fr; }
+  .split, .explore .split { grid-template-columns: 1fr; }
+  .split-rev .split-txt { order: 0; }
+  .duo { grid-template-columns: 1fr; }
+  /* Le haut de page s'empile : le texte, puis la capture. */
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-vis { max-width: 45rem; }
+  .feats { grid-template-columns: repeat(2, 1fr); }
+  .explore .split-vis { order: 2; max-width: 45rem; }
+  .foot-in { grid-template-columns: 1fr; justify-items: start; }
+  .foot-links { justify-content: flex-start; gap: .4rem 1.6rem; }
+  .foot-side { justify-items: start; }
+}
+
+@media (max-width: 1120px) {
   .nav-links {
     position: fixed; inset: var(--nav-h) 0 auto; margin: 0;
     flex-direction: column; gap: 0;
@@ -1027,6 +1165,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   .nav-links.is-open { display: flex; }
   .nav.is-stuck .nav-links { background: color-mix(in srgb, var(--bg) 96%, transparent); backdrop-filter: blur(14px); }
   .nav-links a { padding: .7rem .4rem; font-size: 1rem; border-radius: 8px; }
+  .nav-links a.is-active::after, .nav-links a[aria-current="page"]::after { display: none; }
   .nav-burger { display: inline-grid; }
   .nav-in { gap: .6rem; }
   .brand { margin-right: auto; }
@@ -1039,15 +1178,25 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   .dl-notes > div:last-child { border-bottom: none; }
   .dl-new ul { columns: 1; }
   .hero-cta .btn { flex: 1 1 100%; }
+  .hero-points { margin-left: 0; justify-content: center; }
   .shot { margin-inline: -8px; }
+  /* À plat : penchée et petite, la capture ne se lirait plus. */
+  .tilt img, .tilt-left img, .tilt:hover img, .tilt-left:hover img { transform: none; }
+  .tilt::before { inset: 14% 4% -6%; }
+  .cube { display: none; }
+  .cta-card .btn { flex: 1 1 100%; }
 }
 
 @media (max-width: 480px) {
   /* Le bouton de la barre se réduit à son icône : la place manque à côté de la langue et du thème. */
-  .nav-dl { width: 36px; padding: 0; }
-  .nav-dl span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .nav-dl { width: 38px; padding: 0; }
+  .nav-dl span, .nav-dl .dl-ico { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .nav-actions { gap: .4rem; }
-  .brand-name { font-size: 1rem; }
+  .brand-name { font-size: 1.02rem; }
+  .brand-logo { width: 30px; height: 30px; }
+  .feats { grid-template-columns: 1fr; }
+  .feat { padding: .95rem 1.1rem; }
+  .cta-ico { display: none; }
   .strip-list { gap: .45rem; }
   .strip-list li { font-size: .84rem; padding: .32rem .75rem; }
   .tbl th, .tbl td { padding: .75rem .7rem; }
@@ -1082,7 +1231,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .cat-sec h2 { font-size: clamp(1.35rem, 2.6vw, 1.7rem); margin-bottom: .5rem; }
 .cat-sec .sec-lead { margin-bottom: 1.6rem; }
 
-.cat-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.cat-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr)); }
 .cat-grid[aria-busy="true"] { min-height: 220px; }
 .cat-card {
   display: flex; flex-direction: column; gap: .8rem;
@@ -1091,7 +1240,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 }
 .cat-card:hover { border-color: var(--line-3); background: var(--panel-2); }
 .cat-head { display: flex; gap: .9rem; align-items: center; }
-.cat-ic { width: 48px; height: 48px; flex: none; border-radius: 10px; image-rendering: pixelated; }
+.cat-ic { width: 3rem; height: 3rem; flex: none; border-radius: 10px; image-rendering: pixelated; }
 .cat-titre { display: flex; flex-direction: column; min-width: 0; }
 .cat-titre h3 { font-size: 1.05rem; margin: 0; }
 .cat-meta { color: var(--txt-3); font-size: .82rem; }
@@ -1143,7 +1292,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .theme-card .tmock { margin-bottom: .2rem; }
 
 /* Les habillages livrés avec Kubic : une rangée de miniatures, sans bouton. */
-.skin-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+.skin-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(11.875rem, 1fr)); }
 .skin-card { display: flex; flex-direction: column; gap: .6rem; }
 .skin-card b { font-size: .95rem; }
 .skin-card span { color: var(--txt-3); font-size: .84rem; margin-top: -.4rem; }
@@ -1164,7 +1313,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 }
 
 /* La page où l'on est, dans la barre de navigation. */
-.nav-links a[aria-current="page"] { color: var(--txt); }
+/* (la page en cours est marquée dans la barre : voir « navigation », plus haut) */
 .page-hero .sec-lead em, .cat-sec .sec-lead em, .howto em { font-style: normal; color: var(--txt); font-weight: 560; }
 .howto p + h3, .howto pre + h3 { margin-top: 1.3rem; }
 /* Un bloc de code défile dans sa colonne au lieu de l'élargir (sinon la page déborde sur téléphone). */
@@ -1172,3 +1321,32 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 /* Un thème à image : son fond derrière la fenêtre miniature, les panneaux en verre par-dessus. */
 .tmock.image { background-color: var(--t-bg); background-position: center; background-size: cover; background-repeat: no-repeat; }
 .tmock.image .tm-side, .tmock.image .tm-main { background: color-mix(in srgb, var(--t-panel) 55%, transparent); }
+
+/* ============================================================
+   Refonte de novembre 2026 — touches de violet
+   Les pastilles, numéros et icônes qui étaient gris prennent la
+   teinte de l'accent ; le haut des pages Extensions, Thèmes et
+   Mentions légales reçoit le même halo que l'accueil.
+   ============================================================ */
+.banner-ico, .dl-os {
+  border-color: var(--accent-line); background: var(--accent-soft); color: var(--accent-txt);
+}
+.dl-steps .n, .steps .n {
+  border-color: var(--accent-line); background: var(--accent-soft); color: var(--accent-txt);
+}
+.strip-list li { border-color: var(--line-2); }
+.strip-list li:hover { border-color: var(--accent-line); }
+.cat-card:hover { border-color: var(--accent-line); }
+.sc-try { border-color: var(--accent-line); background: var(--accent-soft); color: var(--txt); }
+.net-ok, .net-dl dd.ok, .copied { color: var(--ok); }
+
+.page-hero, .doc { position: relative; }
+.page-hero::before, .doc::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 420px; pointer-events: none;
+  background: radial-gradient(ellipse 46% 80% at 82% 0%, var(--brand-glow), transparent 70%);
+}
+.page-hero > *, .doc > * { position: relative; }
+.doc-back:hover, .doc-back:hover svg { color: var(--accent-txt); }
+
+/* La capture du launcher, à plat, dans sa section. */
+.split-vis .tilt-flat { max-width: 46rem; margin-inline: auto; }

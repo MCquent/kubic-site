@@ -16,7 +16,7 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="assets/img/icon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/icon.png">
-<meta name="theme-color" content="#08080a">
+<meta name="theme-color" content="#07060c">
 <meta name="color-scheme" content="dark light">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>
@@ -49,6 +49,10 @@
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.5v6c0 4.7 3.1 8.6 7.5 10 4.4-1.4 7.5-5.3 7.5-10v-6L12 2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-7.5 9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></symbol>
+    <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 5.8 10.4 4.7v6.6H3V5.8Z" fill="currentColor" stroke="none"/><path d="M11.6 4.5 21 3v8.3h-9.4V4.5Z" fill="currentColor" stroke="none"/><path d="M3 12.7h7.4v6.6L3 18.2v-5.5Z" fill="currentColor" stroke="none"/><path d="M11.6 12.7H21V21l-9.4-1.5v-6.8Z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none"/></symbol>
   </defs>
 </svg>
 
@@ -56,17 +60,17 @@
 
 <header class="nav" id="nav">
   <div class="nav-in">
-    <a class="brand" href="index.html" aria-label="Kubic — home" data-i18n-attr="aria-label:nav.home">
-      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
-      <span class="brand-name">Kubic</span>
+    <a class="brand" href="index.html" aria-label="Kubic Client — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="34" height="34" alt="">
+      <span class="brand-name">Kubic <b>Client</b></span>
     </a>
 
     <nav class="nav-links" id="nav-links" aria-label="Main navigation" data-i18n-attr="aria-label:nav.main">
-      <a href="index.html#schematics" data-i18n="nav.viewer">3D viewer</a>
-      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
-      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
+      <a href="index.html"><svg aria-hidden="true"><use href="#i-home"/></svg> <span data-i18n="nav.accueil">Home</span></a>
+      <a href="index.html#features" data-i18n="nav.features">Features</a>
       <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
       <a href="themes.html" aria-current="page" data-i18n="nav.themes">Themes</a>
+      <a href="index.html#download" data-i18n="nav.dlsec">Download</a>
       <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
 
@@ -86,8 +90,8 @@
         <svg class="ico-moon"><use href="#i-moon"/></svg>
         <svg class="ico-sun"><use href="#i-sun"/></svg>
       </button>
-      <a class="btn btn-primary btn-sm nav-dl" href="index.html#download">
-        <svg><use href="#i-download"/></svg> <span data-i18n="nav.download">Download</span>
+      <a class="btn btn-outline btn-sm nav-dl" href="index.html#download">
+        <svg><use href="#i-windows"/></svg> <span data-i18n="nav.download">Download</span> <svg class="dl-ico"><use href="#i-download"/></svg>
       </a>
       <button class="icon-btn nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
         <svg class="ico-menu"><use href="#i-menu"/></svg>
@@ -194,26 +198,24 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <div class="foot-brand">
-      <img class="brand-logo" src="assets/img/icon.png" width="30" height="30" alt="">
-      <div>
-        <b>Kubic</b>
-        <small data-i18n="foot.tagline">Minecraft launcher and server manager</small>
-      </div>
-    </div>
+    <a class="brand" href="index.html" aria-label="Kubic Client — home" data-i18n-attr="aria-label:nav.home">
+      <img class="brand-logo" src="assets/img/icon.png" width="34" height="34" alt="">
+      <span class="brand-name">Kubic <b>Client</b></span>
+    </a>
     <nav class="foot-links" aria-label="Footer" data-i18n-attr="aria-label:foot.aria">
-      <a href="index.html#servers" data-i18n="nav.servers">Servers</a>
-      <a href="index.html#launcher" data-i18n="nav.launcher">Launcher</a>
-      <a href="extensions.html" data-i18n="nav.extensions">Extensions</a>
-      <a href="themes.html" data-i18n="nav.themes">Themes</a>
-      <a href="index.html#download" data-i18n="nav.download">Download</a>
+      <a href="legal.html" data-i18n="foot.notice">Legal notice</a>
+      <a href="legal.html#privacy" data-i18n="foot.privacy">Privacy policy</a>
       <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
-      <a href="legal.html" data-i18n="nav.legal">Legal notice &amp; privacy</a>
+      <a href="mailto:contact@kubicmc.com" data-i18n="foot.contact">Contact</a>
     </nav>
-    <p class="foot-contact">
-      <svg><use href="#i-mail"/></svg> <a href="mailto:contact@kubicmc.com">contact@kubicmc.com</a>
-    </p>
-    <p class="foot-legal" data-i18n="foot.short">© <span data-year>2026</span> Kubic — MIT licence. Not affiliated with Mojang Studios or Microsoft.</p>
+    <div class="foot-side">
+      <div class="foot-social">
+        <a href="https://github.com/MCquent/kubic" rel="noopener" aria-label="Kubic Client on GitHub" data-i18n-attr="aria-label:foot.github"><svg class="plein" aria-hidden="true"><use href="#i-github"/></svg></a>
+        <a href="mailto:contact@kubicmc.com" aria-label="Write to contact@kubicmc.com" data-i18n-attr="aria-label:foot.mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+      </div>
+      <p class="foot-copy">© <span data-year>2026</span> Kubic Client · <span data-i18n="foot.licence">MIT licence</span></p>
+    </div>
+    <p class="foot-legal" data-i18n="foot.short2">Independent project, not affiliated with Mojang Studios or Microsoft.</p>
   </div>
 </footer>
 

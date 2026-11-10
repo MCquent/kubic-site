@@ -103,7 +103,7 @@ const onLang = fn => document.addEventListener('kubic:lang', fn);
   // Le thème de départ est posé dans le <head>, avant le premier affichage.
   const root = document.documentElement;
   const meta = document.querySelector('meta[name="theme-color"]');
-  const paint = () => { if (meta) meta.content = root.dataset.theme === 'light' ? '#f7f7f9' : '#08080a'; };
+  const paint = () => { if (meta) meta.content = root.dataset.theme === 'light' ? '#f8f7fd' : '#07060c'; };
   paint();
 
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
@@ -134,6 +134,31 @@ const onLang = fn => document.addEventListener('kubic:lang', fn);
   window.addEventListener('keydown', e => {
     if (e.key === 'Escape' && links.classList.contains('is-open')) { close(); burger.focus(); }
   });
+})();
+
+/* ------------------------------------------------------------ rubrique en cours, dans la barre
+   Sur l'accueil, les liens de la barre portent data-spy="<id d'une rubrique>". Celui
+   de la dernière rubrique dont le haut est passé sous la barre est marqué (.is-active) :
+   « Fonctionnalités » le reste donc pour toutes les sections jusqu'au téléchargement. */
+(() => {
+  const liens = [...document.querySelectorAll('.nav-links a[data-spy]')];
+  const cibles = liens.map(a => document.getElementById(a.dataset.spy)).filter(Boolean);
+  if (cibles.length !== liens.length || !cibles.length) return;
+
+  let attente = false;
+  const marquer = () => {
+    attente = false;
+    const seuil = (document.getElementById('nav')?.offsetHeight || 72) + 120;
+    let i = 0;
+    cibles.forEach((el, n) => { if (el.getBoundingClientRect().top <= seuil) i = n; });
+    // Tout en bas, la dernière rubrique peut être trop courte pour atteindre le seuil.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) i = cibles.length - 1;
+    liens.forEach((a, n) => a.classList.toggle('is-active', n === i));
+  };
+  const demander = () => { if (!attente) { attente = true; requestAnimationFrame(marquer); } };
+  marquer();
+  window.addEventListener('scroll', demander, { passive: true });
+  window.addEventListener('resize', demander);
 })();
 
 /* ------------------------------------------------------------ copier l'empreinte */
