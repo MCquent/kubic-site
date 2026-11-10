@@ -417,7 +417,7 @@ KubicI18n.register('es', {
   'feat.1': "Rendimiento<br>optimizado",
   'feat.2': "Personalización<br>completa",
   'feat.3': "Mods y extensiones<br>fáciles de instalar",
-  'feat.4': "100% seguro",
+  'feat.4': "Seguro",
   'ex.pill': "Una experiencia única",
   'ex.c1': "Una interfaz moderna e intuitiva",
   'ex.c2': "Rendimiento optimizado",
