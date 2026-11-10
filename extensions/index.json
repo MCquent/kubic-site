@@ -2,6 +2,35 @@
   "format": 1,
   "extensions": [
     {
+      "id": "chercheur-zones",
+      "nom": {
+        "fr": "Chercheur de zones",
+        "en": "Area Finder",
+        "es": "Buscador de zonas",
+        "de": "Bereichssucher",
+        "it": "Cercatore di zone",
+        "pt": "Localizador de zonas"
+      },
+      "description": {
+        "fr": "Trouve, près du spawn, la zone de chunks (rectangle ou cercle) qui contient le plus de chunks à slimes, de cabanes de sorcière, de géodes d’améthyste ou de générateurs de monstres.",
+        "en": "Finds, near spawn, the chunk area (rectangle or circle) with the most slime chunks, witch huts, amethyst geodes or monster spawners.",
+        "es": "Encuentra, cerca del spawn, la zona de chunks (rectángulo o círculo) con más chunks de slimes, cabañas de bruja, geodas de amatista o generadores de monstruos.",
+        "de": "Findet in Spawnnähe den Chunk-Bereich (Rechteck oder Kreis) mit den meisten Schleim-Chunks, Hexenhütten, Amethystgeoden oder Monsterspawnern.",
+        "it": "Trova, vicino allo spawn, la zona di chunk (rettangolo o cerchio) con più chunk degli slime, capanne della strega, geodi di ametista o generatori di mostri.",
+        "pt": "Encontra, perto do spawn, a zona de chunks (retângulo ou círculo) com mais chunks de slimes, cabanas de bruxa, geodos de ametista ou geradores de monstros."
+      },
+      "version": "1.2.1",
+      "auteur": "Kubic",
+      "icone": "icones/chercheur-zones.png",
+      "fichier": "chercheur-zones-1.2.1.kubicext",
+      "taille": 43712,
+      "sha256": "94da3e61ce0179debdc41e5fa3364c6ed4713e77b2c1ddc097319fe062d0ec98",
+      "permissions": [
+        "mondes"
+      ],
+      "objet": "slime_ball"
+    },
+    {
       "id": "createur-bannieres",
       "nom": {
         "fr": "Créateur de bannières",
@@ -19,16 +48,48 @@
         "it": "Componi uno stendardo motivo dopo motivo, guardalo su uno scudo e ottieni il comando o i passaggi al telaio per la tua versione del gioco.",
         "pt": "Componha um estandarte padrão a padrão, veja-o num escudo e obtenha o comando ou os passos no tear para a sua versão do jogo."
       },
-      "version": "1.0.0",
+      "version": "1.1.0",
       "auteur": "Kubic",
       "icone": "icones/createur-bannieres.png",
-      "fichier": "createur-bannieres-1.0.0.kubicext",
-      "taille": 37144,
-      "sha256": "1fc5f2b3a6cbb9fb569d42a1bdd79f223342e45bdb2f377c7fb4a6577b4d347e",
+      "fichier": "createur-bannieres-1.1.0.kubicext",
+      "taille": 37162,
+      "sha256": "328ea5e5f233d77da7ee47bd00f4253ae630bae633a5de958bf4c4d9456c6f51",
       "permissions": [
         "textures",
         "enregistrer"
-      ]
+      ],
+      "objet": "light_blue_banner"
+    },
+    {
+      "id": "createur-elytres",
+      "nom": {
+        "fr": "Créateur d’élytres",
+        "en": "Elytra designer",
+        "es": "Creador de élitros",
+        "de": "Elytren-Designer",
+        "it": "Creatore di elitre",
+        "pt": "Criador de élitros"
+      },
+      "description": {
+        "fr": "Dessinez vos élytres pixel par pixel, sur le modèle 3D ou à plat, et enregistrez-les en pack de textures prêt à activer.",
+        "en": "Draw your elytra pixel by pixel, on the 3D model or flat, and save them as a resource pack ready to enable.",
+        "es": "Dibuje sus élitros píxel a píxel, sobre el modelo 3D o en plano, y guárdelos como paquete de recursos listo para activar.",
+        "de": "Zeichnen Sie Ihre Elytren Pixel für Pixel, am 3D-Modell oder flach, und speichern Sie sie als fertiges Ressourcenpaket.",
+        "it": "Disegna le tue elitre pixel per pixel, sul modello 3D o in piano, e salvale come pacchetto di risorse pronto da attivare.",
+        "pt": "Desenhe os seus élitros píxel a píxel, no modelo 3D ou em plano, e guarde-os como pacote de recursos pronto a ativar."
+      },
+      "version": "1.1.0",
+      "auteur": "Kubic",
+      "icone": "icones/createur-elytres.png",
+      "fichier": "createur-elytres-1.1.0.kubicext",
+      "taille": 25347,
+      "sha256": "706a9abd0818d3f19cea41d9aed1ff8553cae25ae191df280072203d03aa5af9",
+      "permissions": [
+        "enregistrer",
+        "skin",
+        "textures"
+      ],
+      "objet": "elytra"
     },
     {
       "id": "editeur-skin",
@@ -48,18 +109,19 @@
         "it": "Dipingi il tuo skin pixel per pixel, sul modello 3D o in piano, poi applicalo al tuo account.",
         "pt": "Pinte o seu skin píxel a píxel, no modelo 3D ou em plano, e aplique-o à sua conta."
       },
-      "version": "1.0.2",
+      "version": "1.1.0",
       "auteur": "Kubic",
       "icone": "icones/editeur-skin.png",
-      "fichier": "editeur-skin-1.0.2.kubicext",
-      "taille": 21619,
-      "sha256": "18c0fdc9c2ce7122fa59e4eae8919052a99a22f20ea07a88c02b37a7c622af6c",
+      "fichier": "editeur-skin-1.1.0.kubicext",
+      "taille": 22320,
+      "sha256": "b005bca8f32a30b67032885e5aa3712f25208f00d70eef74a2e6b9289bc448ce",
       "permissions": [
         "enregistrer",
         "skin",
         "appliquerSkin",
         "textures"
-      ]
+      ],
+      "objet": "player_head"
     },
     {
       "id": "gateway-finder",
@@ -79,15 +141,16 @@
         "it": "Trova i chunk dell’End la cui generazione crea davvero un gateway in 1.12, con la mappa del rilievo e i chunk già generati del tuo mondo.",
         "pt": "Encontra os chunks do End cuja geração cria mesmo um gateway na 1.12, com o mapa do relevo e os chunks já gerados do seu mundo."
       },
-      "version": "1.0.2",
+      "version": "1.1.0",
       "auteur": "Kubic",
       "icone": "icones/gateway-finder.png",
-      "fichier": "gateway-finder-1.0.2.kubicext",
-      "taille": 34859,
-      "sha256": "bcd031510948be249952c7bc1628a6f6757fe111fbec8cfed2c03da7ed4d78af",
+      "fichier": "gateway-finder-1.1.0.kubicext",
+      "taille": 34873,
+      "sha256": "03fd896cc22238449dacbb975e40a354e91e5d5bc292b0e679db7dd032eb23ed",
       "permissions": [
         "mondes"
-      ]
+      ],
+      "objet": "ender_pearl"
     },
     {
       "id": "generateur-cercles",
@@ -100,22 +163,23 @@
         "pt": "Gerador de círculos"
       },
       "description": {
-        "fr": "Cercles, ellipses et sphères bloc par bloc, avec le nombre de blocs et le motif des marches.",
-        "en": "Circles, ellipses and spheres block by block, with the block count and the step pattern.",
-        "es": "Círculos, elipses y esferas bloque a bloque, con el número de bloques y el patrón de escalones.",
-        "de": "Kreise, Ellipsen und Kugeln Block für Block, mit Blockanzahl und Stufenmuster.",
-        "it": "Cerchi, ellissi e sfere blocco per blocco, con il numero di blocchi e lo schema dei gradini.",
-        "pt": "Círculos, elipses e esferas bloco a bloco, com o número de blocos e o padrão dos degraus."
+        "fr": "Cercles, ellipses, sphères et polygones (triangle, hexagone…) bloc par bloc, avec le nombre de blocs et le motif des marches.",
+        "en": "Circles, ellipses, spheres and polygons (triangle, hexagon…) block by block, with the block count and the step pattern.",
+        "es": "Círculos, elipses, esferas y polígonos (triángulo, hexágono…) bloque a bloque, con el número de bloques y el patrón de escalones.",
+        "de": "Kreise, Ellipsen, Kugeln und Vielecke (Dreieck, Sechseck …) Block für Block, mit Blockanzahl und Stufenmuster.",
+        "it": "Cerchi, ellissi, sfere e poligoni (triangolo, esagono…) blocco per blocco, con il numero di blocchi e lo schema dei gradini.",
+        "pt": "Círculos, elipses, esferas e polígonos (triângulo, hexágono…) bloco a bloco, com o número de blocos e o padrão dos degraus."
       },
-      "version": "1.0.2",
+      "version": "1.2.0",
       "auteur": "Kubic",
       "icone": "icones/generateur-cercles.png",
-      "fichier": "generateur-cercles-1.0.2.kubicext",
-      "taille": 12558,
-      "sha256": "84871bceeb6e65a6fd692ece848ec480c096024a3ad69885e4015bc0d9e69a99",
+      "fichier": "generateur-cercles-1.2.0.kubicext",
+      "taille": 15650,
+      "sha256": "d7921fa9630bb7b5ec69806691354081d131e842d6c0de35b69c33995d5a56e3",
       "permissions": [
         "enregistrer"
-      ]
+      ],
+      "objet": "compass"
     },
     {
       "id": "pixel-art",
@@ -135,16 +199,17 @@
         "it": "Disegna con i blocchi o converti un’immagine, con le vere texture del gioco, poi esporta uno schematic e l’elenco dei materiali.",
         "pt": "Desenhe com blocos ou converta uma imagem, com as texturas reais do jogo, e exporte um schematic e a lista de materiais."
       },
-      "version": "1.2.2",
+      "version": "1.5.0",
       "auteur": "Kubic",
       "icone": "icones/pixel-art.png",
-      "fichier": "pixel-art-1.2.2.kubicext",
-      "taille": 37574,
-      "sha256": "0eb2251c428f5e4653efb10ef707077715e4a467e07b1cffc15980d55852b2f5",
+      "fichier": "pixel-art-1.5.0.kubicext",
+      "taille": 47939,
+      "sha256": "33721ce411c137778e936b16be04e4573cbf8b221884763168f9fbe3cf5bfd73",
       "permissions": [
         "enregistrer",
         "textures"
-      ]
+      ],
+      "objet": "painting"
     },
     {
       "id": "testeur-garnitures",
@@ -164,16 +229,17 @@
         "it": "Prova gli ornamenti dell’armatura sul tuo skin, pezzo per pezzo, con le texture della tua versione del gioco.",
         "pt": "Experimente os revestimentos de armadura no seu skin, peça a peça, com as texturas da sua versão do jogo."
       },
-      "version": "1.2.2",
+      "version": "1.3.0",
       "auteur": "Kubic",
       "icone": "icones/testeur-garnitures.png",
-      "fichier": "testeur-garnitures-1.2.2.kubicext",
-      "taille": 25603,
-      "sha256": "edd5ff1378d2194bfe425ac7f06a38daaca7392af2bedd57ebda25e41fe43957",
+      "fichier": "testeur-garnitures-1.3.0.kubicext",
+      "taille": 26698,
+      "sha256": "b57aec674b4ba8439d271da5ecb72d3ac6b576475b746ac9afa131fde3b4d684",
       "permissions": [
         "skin",
         "textures"
-      ]
+      ],
+      "objet": "sentry_armor_trim_smithing_template"
     }
   ]
 }

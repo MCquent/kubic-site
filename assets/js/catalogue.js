@@ -102,14 +102,20 @@
 
   /* ------------------------------------------------------------ thèmes */
   /* L'aperçu : une fenêtre de Kubic en miniature, aux couleurs du thème (variables --t-*). */
-  const apercu = c => el('div', {
-    class: `tmock${c.deco ? ' deco' : ''}`, 'aria-hidden': 'true',
+  const apercu = (c, image = '') => el('div', {
+    class: `tmock${c.deco ? ' deco' : ''}${image ? ' image' : ''}`, 'aria-hidden': 'true',
     style: [
       ...Object.entries({ bg: c.bg, panel: c.panel, panel2: c['panel-2'], line: c['line-2'] || c.line, txt: c.txt, txt2: c['txt-3'] || c['txt-2'], accent: c.accent, on: c['on-accent'] })
         .filter(([, v]) => /^#[0-9a-f]{3,8}$/i.test(String(v)))
         .map(([k, v]) => `--t-${k}:${v}`),
       /* Le liseré de certains habillages (Encre, Indigo) : un dégradé de deux couleurs, rien d'autre. */
       ...(/^linear-gradient\(90deg,\s*#[0-9a-f]{6},\s*#[0-9a-f]{6}\)$/i.test(String(c.deco || '')) ? [`--t-deco:${c.deco}`] : []),
+      /*
+       * L'image de fond d'un thème qui en a une (copiée par tools/themes-site.js
+       * dans themes/apercus/). Posée sur l'élément lui-même : dans une variable,
+       * l'adresse relative se résoudrait depuis style.css (assets/css/…).
+       */
+      ...(/^apercus\/[a-z0-9-]+\.(jpe?g|png|webp)$/i.test(image) ? [`background-image:url("themes/${image}")`] : []),
     ].join(';'),
   },
   el('div', { class: 'tm-side' }, el('i', { class: 'tm-logo' }), el('i', { class: 'tm-item on' }), el('i', { class: 'tm-item' }), el('i', { class: 'tm-item' }), el('i', { class: 'tm-btn' })),
@@ -119,7 +125,7 @@
   if (grilleThemes) {
     let cat = null;
     const carte = th => el('article', { class: 'cat-card theme-card', 'data-id': th.id },
-      apercu(th.apercu || {}),
+      apercu(th.apercu || {}, th.image || ''),
       el('div', { class: 'cat-titre' }, el('h3', { text: texte(th.nom) }), el('span', { class: 'cat-meta', text: `v${th.version}${th.auteur ? ` · ${th.auteur}` : ''}` })),
       el('p', { class: 'cat-desc', text: texte(th.description) }),
       el('div', { class: 'cat-foot' },

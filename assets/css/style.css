@@ -1169,3 +1169,6 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 .howto p + h3, .howto pre + h3 { margin-top: 1.3rem; }
 /* Un bloc de code défile dans sa colonne au lieu de l'élargir (sinon la page déborde sur téléphone). */
 .howto > div { min-width: 0; }
+/* Un thème à image : son fond derrière la fenêtre miniature, les panneaux en verre par-dessus. */
+.tmock.image { background-color: var(--t-bg); background-position: center; background-size: cover; background-repeat: no-repeat; }
+.tmock.image .tm-side, .tmock.image .tm-main { background: color-mix(in srgb, var(--t-panel) 55%, transparent); }
