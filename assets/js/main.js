@@ -17,6 +17,76 @@ const i18n = window.KubicI18n || { t: (k, f) => f, lang: 'en' };
 const t = (key, fallback) => i18n.t(key, fallback);
 const onLang = fn => document.addEventListener('kubic:lang', fn);
 
+/* ------------------------------------------------------------ système du visiteur
+   « win », « mac » ou « linux » : l'onglet ouvert d'office dans Téléchargement
+   et l'icône des boutons. Un téléphone ou un système inconnu compte pour
+   Windows, le plus courant. Le navigateur ne dit pas si un Mac est à puce Apple
+   ou Intel : les deux fichiers sont proposés côte à côte. */
+const OS = (() => {
+  const ua = navigator.userAgent || '';
+  const p = `${(navigator.userAgentData && navigator.userAgentData.platform) || ''} ${navigator.platform || ''}`;
+  if (/iPhone|iPad|iPod|Android/i.test(ua)) return 'win';
+  if (/mac/i.test(p) || /Macintosh|Mac OS X/.test(ua)) return navigator.maxTouchPoints > 1 ? 'win' : 'mac';
+  if (/linux|x11/i.test(p) || /X11|Linux/.test(ua)) return /CrOS/.test(ua) ? 'win' : 'linux';
+  return 'win';
+})();
+const OS_ICONE = { win: '#i-windows', mac: '#i-macos', linux: '#i-linux' };
+
+(() => {
+  document.querySelectorAll('svg[data-os-icon] use').forEach(u => {
+    if (document.getElementById(OS_ICONE[OS].slice(1))) u.setAttribute('href', OS_ICONE[OS]);
+  });
+  // Le bandeau final télécharge l'installateur Windows d'un clic ; ailleurs, il mène aux bons fichiers.
+  if (OS !== 'win') {
+    document.querySelectorAll('a[data-dl-direct]').forEach(a => {
+      a.removeAttribute('data-dl-file');
+      a.removeAttribute('download');
+      a.href = '#download';
+    });
+  }
+})();
+
+/* ------------------------------------------------------------ onglets de téléchargement */
+(() => {
+  const tabs = [...document.querySelectorAll('[data-os-tab]')];
+  const panels = [...document.querySelectorAll('[data-os-panel]')];
+  if (!tabs.length || !panels.length) return;
+
+  const choisir = (os, { focus = false } = {}) => {
+    tabs.forEach(b => {
+      const on = b.dataset.osTab === os;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    panels.forEach(p => { p.hidden = p.dataset.osPanel !== os; });
+  };
+
+  tabs[0].closest('[role="tablist"]').hidden = false;
+  choisir(OS);
+
+  tabs.forEach((b, i) => {
+    b.addEventListener('click', () => choisir(b.dataset.osTab));
+    b.addEventListener('keydown', e => {
+      const n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (n === undefined) return;
+      e.preventDefault();
+      choisir(tabs[(n + tabs.length) % tabs.length].dataset.osTab, { focus: true });
+    });
+  });
+
+  // #download-mac, #download-linux : un lien peut ouvrir un onglet précis (la FAQ le fait).
+  const depuisAncre = () => {
+    const m = /^#download-(win|mac|linux)$/.exec(location.hash);
+    if (!m) return;
+    choisir(m[1]);
+    const sec = document.getElementById('download');
+    if (sec) sec.scrollIntoView();
+  };
+  window.addEventListener('hashchange', depuisAncre);
+  depuisAncre();
+})();
+
 /* ------------------------------------------------------------ version publiée */
 (() => {
   if (!document.querySelector('[data-dl-version], [data-dl-file]')) return;
@@ -52,6 +122,14 @@ const onLang = fn => document.addEventListener('kubic:lang', fn);
     set('[data-dl-sha]', release.sha256);
     document.querySelectorAll('[data-dl-file]').forEach(a => { a.href = release.url; });
 
+    // Les paquets macOS et Linux : une entrée par fichier, chacune avec son lien, son empreinte et sa taille.
+    for (const [cle, p] of Object.entries(release.paquets)) {
+      document.querySelectorAll(`[data-pkg="${cle}"]`).forEach(a => { a.href = p.url; });
+      set(`[data-pkg-sha="${cle}"]`, p.sha256);
+      set(`[data-pkg-filename="${cle}"]`, p.url.split('/').pop());
+      if (p.taille) set(`[data-pkg-size="${cle}"]`, size(p.taille));
+    }
+
     const box = document.getElementById('whats-new');
     const ul = document.querySelector('[data-dl-notes]');
     const items = notes();
@@ -69,11 +147,18 @@ const onLang = fn => document.addEventListener('kubic:lang', fn);
       if (!/^\d+\.\d+\.\d+$/.test(m.version) || !/^[0-9a-f]{64}$/i.test(m.sha256) || !/\.exe$/i.test(m.url || '')) {
         throw new Error('version.json incomplet');
       }
+      // Un paquet mal formé est ignoré seul : sa carte garde les valeurs de la page.
+      const paquets = {};
+      for (const [cle, p] of Object.entries(m.paquets && typeof m.paquets === 'object' ? m.paquets : {})) {
+        if (!/^[a-z0-9-]+$/.test(cle) || !p || !/^https:\/\//.test(p.url || '') || !/^[0-9a-f]{64}$/i.test(p.sha256 || '')) continue;
+        paquets[cle] = { url: p.url, sha256: p.sha256.toLowerCase(), taille: Number.isInteger(p.taille) && p.taille > 0 ? p.taille : 0 };
+      }
       release = {
         ...m,
         sha256: m.sha256.toLowerCase(),
         taille: Number.isInteger(m.taille) && m.taille > 0 ? m.taille : 0,
         date: /^\d{4}-\d{2}-\d{2}$/.test(m.date || '') ? m.date : '',
+        paquets,
       };
       render();
     })

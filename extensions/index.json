@@ -92,6 +92,36 @@
       "objet": "elytra"
     },
     {
+      "id": "createur-mondes",
+      "nom": {
+        "fr": "Créateur de mondes",
+        "en": "World Creator",
+        "es": "Creador de mundos",
+        "de": "Weltenersteller",
+        "it": "Creatore di mondi",
+        "pt": "Criador de mundos"
+      },
+      "description": {
+        "fr": "Dessinez votre carte Minecraft au pinceau, biome par biome, jusqu’à 10 000 blocs de côté, et voyez-la de près bloc par bloc comme une carte du jeu : relief à modeler, montagnes dont la hauteur suit la largeur du massif, érosion des Alpes réglable, rivières qui descendent des sommets en cascades, canyons des badlands, volcans aux formes variées avec coulées de magma et rivages d’obsidienne, îles à un ou plusieurs biomes, plages en pente douce et falaises automatiques, arbres au choix posés au pinceau (chênes, cerisiers, palmiers, séquoias…), densité des plantes réglable (herbe, fleurs, cactus…), minerais visibles sur les Alpes et les volcans, taille des biomes réglable, hauteur du monde jusqu’à 2 032, et des biomes en plus : Alpes, volcan, lac chaud, oasis, lagon, glacier, forêt d’automne. Le monde se crée dans l’instance de votre choix (1.18.2 et plus récent).",
+        "en": "Paint your Minecraft map with a brush, biome by biome, up to 10,000 blocks per side, and zoom in block by block like an in-game map: sculpt the terrain, mountains whose height follows the width of the range, adjustable erosion of the Alps, rivers that come down from the peaks in waterfalls, badlands canyons, volcanoes of varied shapes with magma flows and obsidian shores, islands with one or several biomes, gently sloping beaches and automatic cliffs, trees of your choice painted with a brush (oaks, cherries, palms, redwoods…), adjustable plant density (grass, flowers, cactus…), ores you can see on the Alps and volcanoes, adjustable biome size, a world height up to 2,032, and extra biomes: Alps, volcano, hot spring lake, oasis, lagoon, glacier, autumn forest. The world is created in the instance of your choice (1.18.2 and newer).",
+        "es": "Dibuje su mapa de Minecraft con un pincel, bioma a bioma, hasta 10 000 bloques por lado, y véalo de cerca bloque a bloque como un mapa del juego: relieve a modelar, montañas cuya altura sigue la anchura del macizo, erosión de los Alpes ajustable, ríos que bajan de las cumbres en cascadas, cañones en las badlands, volcanes de formas variadas con coladas de magma y orillas de obsidiana, islas de uno o varios biomas, playas en suave pendiente y acantilados automáticos, árboles a elegir puestos con el pincel (robles, cerezos, palmeras, secuoyas…), densidad de plantas ajustable (hierba, flores, cactus…), minerales visibles en los Alpes y los volcanes, tamaño de los biomas ajustable, altura del mundo hasta 2032 y biomas nuevos: Alpes, volcán, lago termal, oasis, laguna, glaciar, bosque otoñal. El mundo se crea en la instancia que elija (1.18.2 y posteriores).",
+        "de": "Malen Sie Ihre Minecraft-Karte mit dem Pinsel, Biom für Biom, bis zu 10.000 Blöcke Seitenlänge, und sehen Sie sie Block für Block wie eine Karte im Spiel: Gelände formen, Berge, deren Höhe der Breite des Massivs folgt, einstellbare Erosion der Alpen, Flüsse, die in Wasserfällen von den Gipfeln kommen, Canyons in den Badlands, Vulkane in vielen Formen mit Magmaströmen und Obsidianufern, Inseln mit einem oder mehreren Biomen, sanft abfallende Strände und automatische Klippen, Bäume nach Wahl mit dem Pinsel gesetzt (Eichen, Kirschbäume, Palmen, Mammutbäume…), einstellbare Pflanzendichte (Gras, Blumen, Kakteen…), sichtbare Erze auf den Alpen und Vulkanen, einstellbare Biomgröße, eine Welthöhe bis 2.032 und neue Biome: Alpen, Vulkan, heißer See, Oase, Lagune, Gletscher, Herbstwald. Die Welt entsteht in der Instanz Ihrer Wahl (ab 1.18.2).",
+        "it": "Dipingi la tua mappa di Minecraft col pennello, bioma per bioma, fino a 10.000 blocchi per lato, e guardala da vicino blocco per blocco come una mappa del gioco: rilievo da modellare, montagne la cui altezza segue la larghezza del massiccio, erosione delle Alpi regolabile, fiumi che scendono dalle vette in cascate, canyon nelle badlands, vulcani dalle forme varie con colate di magma e rive di ossidiana, isole di uno o più biomi, spiagge in dolce pendenza e scogliere automatiche, alberi a scelta posati col pennello (querce, ciliegi, palme, sequoie…), densità delle piante regolabile (erba, fiori, cactus…), minerali visibili sulle Alpi e sui vulcani, dimensione dei biomi regolabile, altezza del mondo fino a 2.032 e biomi nuovi: Alpi, vulcano, lago termale, oasi, laguna, ghiacciaio, foresta autunnale. Il mondo viene creato nell’istanza che scegli (1.18.2 e successive).",
+        "pt": "Desenhe o seu mapa do Minecraft com um pincel, bioma a bioma, até 10 000 blocos de lado, e veja-o de perto bloco a bloco como um mapa do jogo: relevo para modelar, montanhas cuja altura segue a largura do maciço, erosão dos Alpes ajustável, rios que descem dos cumes em cascatas, desfiladeiros nas badlands, vulcões de formas variadas com escoadas de magma e margens de obsidiana, ilhas de um ou vários biomas, praias em declive suave e falésias automáticas, árvores à escolha postas com o pincel (carvalhos, cerejeiras, palmeiras, sequoias…), densidade das plantas ajustável (erva, flores, catos…), minérios visíveis nos Alpes e nos vulcões, tamanho dos biomas ajustável, altura do mundo até 2032 e biomas novos: Alpes, vulcão, lago termal, oásis, lagoa, glaciar, floresta outonal. O mundo é criado na instância que escolher (1.18.2 e mais recentes)."
+      },
+      "version": "1.5.0",
+      "auteur": "Kubic",
+      "icone": "icones/createur-mondes.png",
+      "fichier": "createur-mondes-1.5.0.kubicext",
+      "taille": 148168,
+      "sha256": "bf592e8787eae7aeecc22b6d63d7b08b9a56dd65b8cb48315385f3bc2057184a",
+      "permissions": [
+        "creerMondes",
+        "enregistrer"
+      ],
+      "objet": "filled_map"
+    },
+    {
       "id": "editeur-skin",
       "nom": {
         "fr": "Éditeur de skin",

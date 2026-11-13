@@ -1,91 +1,83 @@
 {
-  "version": "1.3.3",
-  "url": "https://github.com/MCquent/kubic/releases/download/v1.3.3/Kubic-Setup-1.3.3.exe",
-  "sha256": "31b871d3489ccef91ce22563cb555486c5590c6236592a20e644992fe561b5ce",
-  "taille": 121475984,
-  "date": "2026-11-10",
+  "version": "1.3.4",
+  "url": "https://github.com/MCquent/kubic/releases/download/v1.3.4/Kubic-Setup-1.3.4.exe",
+  "sha256": "401d4951767c355d0bf44523e0f72a73978e257fc6fd3dea23dfd961b94cf376",
+  "taille": 121503292,
+  "date": "2026-11-13",
+  "paquets": {
+    "mac-arm64": {
+      "url": "https://github.com/MCquent/kubic/releases/download/v1.3.4/Kubic-1.3.4-mac-arm64.zip",
+      "sha256": "f2c4add17d10624a0266e9f29c5aaf7b5825129d6dc6d8db8114ecc28a83abd5",
+      "taille": 153157850
+    },
+    "mac-x64": {
+      "url": "https://github.com/MCquent/kubic/releases/download/v1.3.4/Kubic-1.3.4-mac-x64.zip",
+      "sha256": "5fd263e94929c2895fe848432b5d6083766c1542d21c29cbf34a390eeefbcc4e",
+      "taille": 156655672
+    },
+    "linux-deb": {
+      "url": "https://github.com/MCquent/kubic/releases/download/v1.3.4/Kubic-1.3.4-linux-amd64.deb",
+      "sha256": "3e7428dbdaad093fe3f13ac808b6def09ce31d06fe674d532eb43399de8c7f78",
+      "taille": 154803398
+    },
+    "linux-tar": {
+      "url": "https://github.com/MCquent/kubic/releases/download/v1.3.4/Kubic-1.3.4-linux-x64.tar.gz",
+      "sha256": "4680f76687680564270fafcbdf0e089266fe1120e5c43e4ae317fb626939c60e",
+      "taille": 154576629
+    }
+  },
   "notes": [
-    "Profil : un onglet Statistiques — temps de jeu de toutes les instances, place qu’elles prennent, blocs posés et cassés, distance parcourue… en survie",
-    "Profil : l’aperçu bascule entre la cape et les élytres",
-    "Schematics : un mode Shaders dans le visionneur 3D — ombres portées, ciel, soleil réglable du lever au coucher — et des feuillages enfin de la bonne couleur",
-    "Extensions : deux nouvelles — le Chercheur de zones (slimes, cabanes de sorcière, géodes, générateurs de monstres) et le Créateur d’élytres — et leurs icônes sont des objets du jeu",
-    "Launcher : les snapshots d’avant 2013 (12w49a et les autres) s’installent, et la liste des versions n’est plus coupée aux plus récentes",
-    "Snapshots de la 1.13 (18w14a à 1.13-pre10) : un monde venu de la 1.12 se rouvre sans « Couldn’t load chunk »",
-    "Mise à jour : Kubic s’installe en arrière-plan et se rouvre tout seul, après avoir arrêté proprement vos serveurs",
-    "Adresse kubicmc.com : supprimer un serveur rend son adresse, tout de suite ou dès que le service répond",
-    "Forge : une version déjà présente sur le PC n’est plus prise pour une installation ratée",
-    "Anciennes versions du jeu : plus de plantage au lancement après avoir repris les réglages d’une autre instance, ni de « Fichier corrompu » à l’installation",
-    "Sauvegardes et exports .zip : si le fichier ne peut pas s’écrire, Kubic le dit au lieu d’attendre sans fin",
-    "Langues : les messages d’erreur et les fenêtres de Windows (choisir un fichier, un dossier) sont traduits"
+    "Kubic arrive sur macOS (puces Apple et Intel) et sur Linux (.deb pour Ubuntu, Debian et Mint, .tar.gz pour les autres) — premières versions, en bêta",
+    "Nouvelle extension, le Créateur de mondes : dessinez votre carte au pinceau, biome par biome, et Kubic la crée comme un monde neuf dans l’instance de votre choix — un monde existant n’est jamais modifié",
+    "Serveurs : jusqu’à 8 en même temps au lieu de 2 — leur suivi processeur et mémoire est partagé, l’application ne ralentit pas",
+    "Serveurs : un monde joué avec un mod puis posé sur un serveur sans ce mod garde ses règles — Kubic retire au démarrage les règles du mod absent, qui faisaient remettre toutes les règles du monde par défaut",
+    "Aperçu : la fréquence du processeur à côté de son nombre de cœurs — celle du moment quand le serveur tourne",
+    "Inventaire des joueurs dessiné comme dans le jeu : blocs en 3D (coffres, boîtes de Shulker, têtes, lits…), police du jeu, barre d’usure, reflet des enchantements et infobulle au survol",
+    "Inventaire : les silhouettes des cases d’armure vides réapparaissent en 1.21.2 et après"
   ],
   "notes_en": [
-    "Profile: a Statistics tab — play time across all instances, the space they take, blocks placed and broken, distance travelled… in survival",
-    "Profile: the preview switches between the cape and the elytra",
-    "Schematics: a Shaders mode in the 3D viewer — cast shadows, sky, a sun you can set from sunrise to sunset — and foliage in the right colours at last",
-    "Extensions: two new ones — the Area Finder (slimes, witch huts, geodes, monster spawners) and the Elytra designer — and their icons are game items",
-    "Launcher: snapshots from before 2013 (12w49a and the others) can be installed, and the version list is no longer cut off at the most recent ones",
-    "1.13 snapshots (18w14a to 1.13-pre10): a world brought from 1.12 reopens without “Couldn’t load chunk”",
-    "Updates: Kubic installs in the background and reopens by itself, after cleanly stopping your servers",
-    "kubicmc.com address: deleting a server releases its address, right away or as soon as the service responds",
-    "Forge: a version already on the PC is no longer mistaken for a failed installation",
-    "Old game versions: no more crash at launch after copying the settings of another instance, and no more “Corrupted file” when installing",
-    "Backups and .zip exports: if the file cannot be written, Kubic says so instead of waiting forever",
-    "Languages: error messages and Windows dialogs (choosing a file or a folder) are translated"
+    "Kubic comes to macOS (Apple silicon and Intel) and Linux (.deb for Ubuntu, Debian and Mint, .tar.gz for the others) — first versions, in beta",
+    "New extension, the World Creator: paint your map with a brush, biome by biome, and Kubic creates it as a new world in the instance of your choice — an existing world is never changed",
+    "Servers: up to 8 at once instead of 2 — their CPU and memory tracking is shared, so the app does not slow down",
+    "Servers: a world played with a mod, then moved to a server without that mod, keeps its rules — at startup Kubic removes the missing mod’s rules, which made every rule of the world go back to its default",
+    "Overview: the CPU frequency next to its core count — the current one while the server runs",
+    "Player inventories drawn as in the game: 3D blocks (chests, shulker boxes, heads, beds…), the game font, durability bar, enchantment glint and a tooltip on hover",
+    "Inventory: the outlines of empty armour slots are back in 1.21.2 and later"
   ],
   "notes_es": [
-    "Perfil: una pestaña Estadísticas — tiempo de juego de todas las instancias, el espacio que ocupan, bloques colocados y rotos, distancia recorrida… en supervivencia",
-    "Perfil: la vista previa alterna entre la capa y los élitros",
-    "Schematics: un modo Shaders en el visor 3D — sombras proyectadas, cielo, sol ajustable del amanecer al atardecer — y follaje por fin del color correcto",
-    "Extensiones: dos nuevas — el Buscador de zonas (slimes, cabañas de bruja, geodas, generadores de monstruos) y el Creador de élitros — y sus iconos son objetos del juego",
-    "Launcher: las snapshots anteriores a 2013 (12w49a y las demás) se instalan, y la lista de versiones ya no se corta en las más recientes",
-    "Snapshots de la 1.13 (18w14a a 1.13-pre10): un mundo traído de la 1.12 se vuelve a abrir sin «Couldn’t load chunk»",
-    "Actualización: Kubic se instala en segundo plano y se vuelve a abrir solo, tras detener correctamente sus servidores",
-    "Dirección kubicmc.com: eliminar un servidor libera su dirección, enseguida o en cuanto responda el servicio",
-    "Forge: una versión ya presente en el PC ya no se toma por una instalación fallida",
-    "Versiones antiguas del juego: se acabó el cierre al iniciar tras copiar los ajustes de otra instancia, y el «Archivo dañado» al instalar",
-    "Copias y exportaciones .zip: si el archivo no se puede escribir, Kubic lo dice en lugar de esperar sin fin",
-    "Idiomas: los mensajes de error y las ventanas de Windows (elegir un archivo, una carpeta) están traducidos"
+    "Kubic llega a macOS (chips de Apple e Intel) y a Linux (.deb para Ubuntu, Debian y Mint, .tar.gz para las demás) — primeras versiones, en beta",
+    "Nueva extensión, el Creador de mundos: dibuje su mapa con un pincel, bioma a bioma, y Kubic lo crea como un mundo nuevo en la instancia que elija — un mundo existente nunca se modifica",
+    "Servidores: hasta 8 a la vez en lugar de 2 — su seguimiento de procesador y memoria es compartido, la aplicación no se ralentiza",
+    "Servidores: un mundo jugado con un mod y llevado después a un servidor sin ese mod conserva sus reglas — al arrancar, Kubic quita las reglas del mod ausente, que devolvían todas las reglas del mundo a su valor por defecto",
+    "Resumen: la frecuencia del procesador junto a su número de núcleos — la del momento mientras el servidor funciona",
+    "Inventarios de los jugadores dibujados como en el juego: bloques en 3D (cofres, cajas de shulker, cabezas, camas…), la fuente del juego, barra de durabilidad, brillo de los encantamientos y descripción al pasar el ratón",
+    "Inventario: las siluetas de las casillas de armadura vacías vuelven en 1.21.2 y posteriores"
   ],
   "notes_de": [
-    "Profil: ein Tab Statistiken — Spielzeit aller Instanzen, ihr Speicherplatz, platzierte und abgebaute Blöcke, zurückgelegte Strecke… im Überlebensmodus",
-    "Profil: Die Vorschau wechselt zwischen Umhang und Elytren",
-    "Schematics: ein Shader-Modus im 3D-Betrachter — Schlagschatten, Himmel, eine von Sonnenaufgang bis Sonnenuntergang einstellbare Sonne — und Laub endlich in der richtigen Farbe",
-    "Erweiterungen: zwei neue — der Bereichssucher (Schleime, Hexenhütten, Geoden, Monsterspawner) und der Elytren-Designer — und ihre Symbole sind Gegenstände aus dem Spiel",
-    "Launcher: Snapshots von vor 2013 (12w49a und die anderen) lassen sich installieren, und die Versionsliste endet nicht mehr bei den neuesten",
-    "1.13-Snapshots (18w14a bis 1.13-pre10): Eine Welt aus der 1.12 öffnet sich wieder ohne „Couldn’t load chunk“",
-    "Update: Kubic installiert sich im Hintergrund und öffnet sich von selbst wieder, nachdem Ihre Server sauber beendet wurden",
-    "kubicmc.com-Adresse: Beim Löschen eines Servers wird seine Adresse freigegeben, sofort oder sobald der Dienst antwortet",
-    "Forge: Eine bereits auf dem PC vorhandene Version gilt nicht mehr als fehlgeschlagene Installation",
-    "Alte Spielversionen: kein Absturz beim Start mehr nach dem Übernehmen der Einstellungen einer anderen Instanz, und kein „Beschädigte Datei“ bei der Installation",
-    "Sicherungen und .zip-Exporte: Lässt sich die Datei nicht schreiben, sagt Kubic es, statt endlos zu warten",
-    "Sprachen: Fehlermeldungen und Windows-Fenster (Datei oder Ordner wählen) sind übersetzt"
+    "Kubic gibt es jetzt für macOS (Apple-Chips und Intel) und Linux (.deb für Ubuntu, Debian und Mint, .tar.gz für die anderen) — erste Versionen, als Beta",
+    "Neue Erweiterung, der Weltenersteller: Malen Sie Ihre Karte mit dem Pinsel, Biom für Biom, und Kubic legt sie als neue Welt in der Instanz Ihrer Wahl an — eine bestehende Welt wird nie verändert",
+    "Server: bis zu 8 gleichzeitig statt 2 — die Prozessor- und Speicherüberwachung wird geteilt, die App wird nicht langsamer",
+    "Server: Eine mit einem Mod gespielte Welt, die auf einen Server ohne diesen Mod kommt, behält ihre Regeln — Kubic entfernt beim Start die Regeln des fehlenden Mods, durch die alle Regeln der Welt auf ihre Standardwerte zurückfielen",
+    "Übersicht: die Prozessorfrequenz neben der Zahl der Kerne — die aktuelle, solange der Server läuft",
+    "Spielerinventare wie im Spiel gezeichnet: 3D-Blöcke (Truhen, Shulker-Kisten, Köpfe, Betten…), die Schrift des Spiels, Haltbarkeitsbalken, Verzauberungsglanz und ein Tooltip beim Darüberfahren",
+    "Inventar: die Umrisse leerer Rüstungsplätze sind ab 1.21.2 wieder da"
   ],
   "notes_it": [
-    "Profilo: una scheda Statistiche — tempo di gioco di tutte le istanze, lo spazio che occupano, blocchi piazzati e rotti, distanza percorsa… in sopravvivenza",
-    "Profilo: l’anteprima passa dal mantello alle elitre",
-    "Schematic: una modalità Shader nel visualizzatore 3D — ombre proiettate, cielo, sole regolabile dall’alba al tramonto — e fogliame finalmente del colore giusto",
-    "Estensioni: due nuove — il Cercatore di zone (slime, capanne della strega, geodi, generatori di mostri) e il Creatore di elitre — e le loro icone sono oggetti del gioco",
-    "Launcher: gli snapshot precedenti al 2013 (12w49a e gli altri) si installano, e l’elenco delle versioni non è più troncato alle più recenti",
-    "Snapshot della 1.13 (da 18w14a a 1.13-pre10): un mondo portato dalla 1.12 si riapre senza «Couldn’t load chunk»",
-    "Aggiornamento: Kubic si installa in background e si riapre da solo, dopo aver fermato correttamente i tuoi server",
-    "Indirizzo kubicmc.com: eliminare un server ne rilascia l’indirizzo, subito o appena il servizio risponde",
-    "Forge: una versione già presente sul PC non viene più scambiata per un’installazione fallita",
-    "Vecchie versioni del gioco: niente più arresto all’avvio dopo aver ripreso le impostazioni di un’altra istanza, né «File danneggiato» all’installazione",
-    "Backup ed esportazioni .zip: se il file non può essere scritto, Kubic lo dice invece di attendere all’infinito",
-    "Lingue: i messaggi di errore e le finestre di Windows (scegliere un file, una cartella) sono tradotti"
+    "Kubic arriva su macOS (chip Apple e Intel) e su Linux (.deb per Ubuntu, Debian e Mint, .tar.gz per le altre) — prime versioni, in beta",
+    "Nuova estensione, il Creatore di mondi: dipingi la tua mappa col pennello, bioma per bioma, e Kubic la crea come un mondo nuovo nell’istanza che scegli — un mondo esistente non viene mai modificato",
+    "Server: fino a 8 contemporaneamente invece di 2 — il monitoraggio di processore e memoria è condiviso, l’app non rallenta",
+    "Server: un mondo giocato con una mod e poi spostato su un server senza quella mod conserva le sue regole — all’avvio Kubic toglie le regole della mod mancante, che riportavano tutte le regole del mondo ai valori predefiniti",
+    "Panoramica: la frequenza del processore accanto al numero di core — quella del momento mentre il server è acceso",
+    "Inventari dei giocatori disegnati come nel gioco: blocchi in 3D (bauli, scatole di shulker, teste, letti…), il carattere del gioco, barra di durabilità, bagliore degli incantesimi e descrizione al passaggio del mouse",
+    "Inventario: le sagome degli slot dell’armatura vuoti ricompaiono dalla 1.21.2 in poi"
   ],
   "notes_pt": [
-    "Perfil: um separador Estatísticas — tempo de jogo de todas as instâncias, o espaço que ocupam, blocos colocados e partidos, distância percorrida… em sobrevivência",
-    "Perfil: a pré-visualização alterna entre a capa e os élitros",
-    "Schematics: um modo Shaders no visualizador 3D — sombras projetadas, céu, sol ajustável do nascer ao pôr — e folhagem finalmente da cor certa",
-    "Extensões: duas novas — o Localizador de zonas (slimes, cabanas de bruxa, geodos, geradores de monstros) e o Criador de élitros — e os seus ícones são objetos do jogo",
-    "Launcher: as snapshots anteriores a 2013 (12w49a e as outras) instalam-se, e a lista de versões já não é cortada nas mais recentes",
-    "Snapshots da 1.13 (18w14a a 1.13-pre10): um mundo trazido da 1.12 volta a abrir sem «Couldn’t load chunk»",
-    "Atualização: o Kubic instala-se em segundo plano e volta a abrir sozinho, depois de parar corretamente os seus servidores",
-    "Endereço kubicmc.com: eliminar um servidor liberta o endereço, de imediato ou assim que o serviço responder",
-    "Forge: uma versão já presente no PC deixa de ser tomada por uma instalação falhada",
-    "Versões antigas do jogo: acabou o fecho ao iniciar depois de copiar as definições de outra instância, e o «Ficheiro corrompido» ao instalar",
-    "Cópias e exportações .zip: se o ficheiro não puder ser escrito, o Kubic di-lo em vez de esperar sem fim",
-    "Idiomas: as mensagens de erro e as janelas do Windows (escolher um ficheiro, uma pasta) estão traduzidas"
+    "O Kubic chega ao macOS (chips Apple e Intel) e ao Linux (.deb para Ubuntu, Debian e Mint, .tar.gz para as outras) — primeiras versões, em beta",
+    "Nova extensão, o Criador de mundos: desenhe o seu mapa com um pincel, bioma a bioma, e o Kubic cria-o como um mundo novo na instância que escolher — um mundo existente nunca é alterado",
+    "Servidores: até 8 ao mesmo tempo em vez de 2 — a monitorização de processador e memória é partilhada, a aplicação não fica mais lenta",
+    "Servidores: um mundo jogado com um mod e depois levado para um servidor sem esse mod mantém as suas regras — ao arrancar, o Kubic retira as regras do mod em falta, que faziam voltar todas as regras do mundo aos valores predefinidos",
+    "Visão geral: a frequência do processador ao lado do número de núcleos — a do momento enquanto o servidor está ligado",
+    "Inventários dos jogadores desenhados como no jogo: blocos em 3D (baús, caixas de shulker, cabeças, camas…), o tipo de letra do jogo, barra de durabilidade, brilho dos encantamentos e descrição ao passar o rato",
+    "Inventário: as silhuetas das ranhuras de armadura vazias voltam na 1.21.2 e posteriores"
   ]
 }

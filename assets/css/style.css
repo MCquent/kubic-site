@@ -1047,6 +1047,38 @@ a.feat:hover { border-color: var(--accent-line); transform: translateY(-2px); ba
 .dl-notes b { display: block; font-size: .92rem; margin-bottom: .35rem; }
 .dl-notes span { color: var(--txt-3); font-size: .87rem; }
 
+/* Un onglet par système. Sans JavaScript, la barre reste cachée et les trois blocs s'empilent. */
+.dl-tabs {
+  display: flex; gap: .25rem; overflow-x: auto;
+  padding: .55rem clamp(.9rem, 2.4vw, 1.5rem) 0; background: var(--bg-2);
+}
+.dl-tab {
+  display: inline-flex; align-items: center; gap: .5em; flex: none;
+  padding: .7em 1.05em .8em; border: 0; border-bottom: 2px solid transparent; border-radius: 10px 10px 0 0;
+  background: none; color: var(--txt-3); font: inherit; font-size: .95rem; font-weight: 560; cursor: pointer;
+  transition: color .18s, background .18s, border-color .18s;
+}
+.dl-tab svg { width: 1.1em; height: 1.1em; }
+.dl-tab:hover { color: var(--txt); }
+.dl-tab[aria-selected="true"] { color: var(--txt); background: var(--panel); border-bottom-color: var(--accent); }
+.dl-tab[aria-selected="true"] svg { color: var(--accent-txt); }
+.dl-tab:focus-visible { outline-offset: -2px; border-radius: 10px 10px 0 0; }
+.dl-tab .chip { margin-left: .1em; }
+.dl-panel > * + * { border-top: 1px solid var(--line); }
+
+/* macOS et Linux : deux fichiers chacun, une ligne par fichier avec son empreinte. */
+.dl-file {
+  display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: .7rem 1.2rem;
+  padding: 1.1rem clamp(1.4rem, 3vw, 2rem);
+}
+.dl-file + .dl-file { border-top: 1px solid var(--line); }
+.dl-file-txt b { display: block; font-size: 1rem; }
+.dl-file-txt span { color: var(--txt-3); font-size: .87rem; }
+.dl-file-size { color: var(--txt-3); font-size: .87rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dl-file .dl-hash-row { grid-column: 1 / -1; }
+.dl-file .icon-btn { width: 32px; height: 32px; font-size: .95rem; }
+.dl-steps code, .dl-hash p code { overflow-wrap: anywhere; }
+
 /* ------------------------------------------------------------ faq */
 .faq { display: grid; gap: .6rem; }
 .faq details {
@@ -1177,6 +1209,8 @@ a.feat:hover { border-color: var(--accent-line); transform: translateY(-2px); ba
   .dl-notes > div { border-right: none; border-bottom: 1px solid var(--line); }
   .dl-notes > div:last-child { border-bottom: none; }
   .dl-new ul { columns: 1; }
+  .dl-file { grid-template-columns: 1fr auto; }
+  .dl-file .btn { grid-column: 1 / -1; justify-self: start; }
   .hero-cta .btn { flex: 1 1 100%; }
   .hero-points { margin-left: 0; justify-content: center; }
   .shot { margin-inline: -8px; }
@@ -1192,6 +1226,10 @@ a.feat:hover { border-color: var(--accent-line); transform: translateY(-2px); ba
   .nav-dl { width: 38px; padding: 0; }
   .nav-dl span, .nav-dl .dl-ico { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .nav-actions { gap: .4rem; }
+  /* Les trois onglets tiennent sur un téléphone, sans barre à faire glisser. */
+  .dl-tabs { gap: .1rem; padding-inline: .4rem; }
+  .dl-tab { gap: .35em; padding: .7em .55em .8em; font-size: .88rem; }
+  .dl-tab .chip { padding: .1em .45em; font-size: .66em; }
   .brand-name { font-size: 1.02rem; }
   .brand-logo { width: 30px; height: 30px; }
   .feats { grid-template-columns: 1fr; }
@@ -1202,6 +1240,11 @@ a.feat:hover { border-color: var(--accent-line); transform: translateY(-2px); ba
   .tbl th, .tbl td { padding: .75rem .7rem; }
   .tbl th { letter-spacing: .05em; }
   .wrap, .nav-in { width: min(100% - 32px, var(--wrap)); }
+}
+
+@media (max-width: 400px) {
+  /* Sur les plus petits écrans, le nom suffit : l'icône du système reste en tête du bloc. */
+  .dl-tab svg { display: none; }
 }
 
 /* ============================================================
